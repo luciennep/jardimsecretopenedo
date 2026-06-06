@@ -1,14 +1,345 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel de Controle - Jardim Secreto</title>
-  <!-- Carrega o estilo do painel administrativo -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@staticcms/core@v4/dist/static-cms.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Jardim Secreto - Penedo, RJ</title>
+    <style>
+        /* Reset básico e fontes sofisticadas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: #4a4b3d; /* Verde-oliva da tulipa */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #3e3f33; /* Tom ligeiramente mais escuro para o corpo */
+            min-height: 100vh;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            padding: 30px 10px 15px 10px;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #b9b594; /* Creme da tulipa */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #b9b594;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Manifesto de Sucesso */
+        .manifesto {
+            text-align: center;
+            padding: 15px 10px 25px 10px;
+        }
+
+        .manifesto h2 {
+            font-size: 22px;
+            color: #b9b594;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .manifesto p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Botão de Destaque */
+        .btn-principal {
+            display: block;
+            background-color: #9c4333; /* Terracota da tulipa */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 0 35px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: background 0.3s;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-principal:hover {
+            background-color: #823629;
+        }
+
+        /* Sistema de Abas (Tabs) */
+        .abas-container {
+            margin-bottom: 30px;
+        }
+
+        .abas-botoes {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(185, 181, 148, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .aba-label {
+            flex: 1;
+            text-align: center;
+            padding: 12px 5px;
+            cursor: pointer;
+            color: #b9b594;
+            font-size: 14px;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .aba-conteudo {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #tab1:checked ~ .abas-botoes label[for="tab1"],
+        #tab2:checked ~ .abas-botoes label[for="tab2"],
+        #tab3:checked ~ .abas-botoes label[for="tab3"] {
+            color: #ffffff;
+            border-bottom: 2px solid #9c4333;
+            font-weight: bold;
+        }
+
+        #tab1:checked ~ .conteudo-container #conteudo-gastronomia,
+        #tab2:checked ~ .conteudo-container #conteudo-espaco,
+        #tab3:checked ~ .conteudo-container #conteudo-chef {
+            display: block;
+        }
+
+        /* Copy explicativo interno das abas */
+        .aba-copy {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            font-style: italic;
+        }
+
+        /* Grid de Fotos Inteligente (Vertical) */
+        .grid-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .foto-item {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(185, 181, 148, 0.2);
+        }
+
+        /* Perfil do Chef */
+        .perfil-chef {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .foto-chef {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(185, 181, 148, 0.2);
+        }
+
+        .texto-chef {
+            text-align: justify;
+            font-size: 14px;
+            opacity: 0.9;
+            padding: 0 5px;
+        }
+
+        /* Seção de Informações */
+        .secao-info {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(185, 181, 148, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .secao-info a {
+            color: #b9b594;
+            text-decoration: none;
+        }
+
+        .secao-info a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .titulo-info {
+            font-size: 16px;
+            color: #b9b594;
+            margin-bottom: 10px;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            border-top: 1px solid rgba(185, 181, 148, 0.2);
+            margin-top: 30px;
+        }
+
+        .redes-sociais a {
+            color: #b9b594;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .redes-sociais a:hover {
+            color: #9c4333;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 11px;
+            opacity: 0.5;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Carrega o motor do CMS que faz a mágica acontecer -->
-  <script src="https://cdn.jsdelivr.net/npm/@staticcms/core@v4/dist/static-cms.js"></script>
+
+    <div class="container">
+
+        <!-- Cabeçalho -->
+        <header>
+            <img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Restaurante Jardim Secreto" class="logo-img">
+            <h1>Jardim Secreto</h1>
+            <div class="subtitulo">Alta Gastronomia & Natureza em Penedo</div>
+        </header>
+
+        <!-- Copy de Sucesso Principal -->
+        <div class="manifesto">
+            <h2>Sabores Memoráveis em um Cenário Inesquecível...</h2>
+            <p>Descubra um refúgio exclusivo em Penedo, onde a sofisticação da culinária internacional se funde ao aconchego e à calmaria da Mata Atlântica.</p>
+        </div>
+
+        <!-- Ação Principal -->
+        <a href="https://wa.me/5524992671045" target="_blank" class="btn-principal">
+            🍷 Reservar uma Mesa via WhatsApp
+        </a>
+
+        <!-- NAVEGAÇÃO POR ABAS -->
+        <div class="abas-container">
+            <input type="radio" id="tab1" name="abas" checked>
+            <input type="radio" id="tab2" name="abas">
+            <input type="radio" id="tab3" name="abas">
+
+            <div class="abas-botoes">
+                <label for="tab1" class="aba-label">✨ Gastronomia</label>
+                <label for="tab2" class="aba-label">🌿 O Espaço</label>
+                <label for="tab3" class="aba-label">👨‍🍳 O Chef</label>
+            </div>
+
+            <div class="conteudo-container">
+                
+                <!-- ABA 1: GASTRONOMIA -->
+                <div class="aba-conteudo" id="conteudo-gastronomia">
+                    <p class="aba-copy">"Uma cozinha autoral autêntica. Da delicadeza das nossas entradas ao frescor dos frutos do mar e massas artesanais, cada prato celebra a harmonia entre técnica refinada e sabor inesquecível."</p>
+                    <div class="grid-vertical">
+                        <img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Tartar Especial" class="foto-item">
+                        <img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Camarões Grelhados" class="foto-item">
+                        <img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Massa com Camarão" class="foto-item">
+                        <img src="622392565_18226603924307947_2563733411932213616_n.jpg" alt="Bruschetta de Jamón" class="foto-item">
+                    </div>
+                </div>
+
+                <!-- ABA 2: O ESPAÇO -->
+                <div class="aba-conteudo" id="conteudo-espaco">
+                    <p class="aba-copy">"Um refúgio arquitetônico em meio ao verde. Desfrute de ambientes que integram a elegância rústica da madeira, o aconchego das luzes quentes e a calmaria de nossa área externa."</p>
+                    <div class="grid-vertical">
+                        <img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Salão Principal do Restaurante" class="foto-item">
+                        <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Fachada e Natureza" class="foto-item">
+                        <img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Lounge Externo Aconchegante" class="foto-item">
+                    </div>
+                </div>
+
+                <!-- ABA 3: O CHEF -->
+                <div class="aba-conteudo" id="conteudo-chef">
+                    <div class="perfil-chef">
+                        <img src="485358453_1333407071452236_2828232707957084428_n.jpg" alt="Chef Fabiano de Almeida" class="foto-chef">
+                        <div class="texto-chef">
+                            <h3 style="color: #b9b594; font-weight: normal; margin-bottom: 8px; text-align: center;">Fabiano de Almeida</h3>
+                            <p>À frente das criações do Jardim Secreto, o Chef Fabiano de Almeida transforma ingredientes selecionados em verdadeiras obras de arte gastronomicas. Com um olhar refinado e profundo respeito à culinária clássica e contemporânea, sua assinatura combina técnicas precisas com o frescor dos produtos locais. Cada prato é pensado para harmonizar perfeitamente com a atmosfera mágica do nosso restaurante, transformando o seu jantar em uma memória inesquecível.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Informações de Contato / Localização -->
+        <div class="secao-info">
+            <div class="titulo-info">📍 Localização & Contato</div>
+            <p><a href="https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0xbc4d4fe8b5343b:0x643be32c6c26272!2m2!1d-44.534931!2d-22.4260663?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">🗺️ Av. Três Cachoeiras, 389 - Penedo, Itatiaia — RJ</a></p>
+            <p style="font-size: 12px; color: #b9b594; margin-bottom: 10px;">(A caminho das Três Cachoeiras — Clique para abrir no mapa)</p>
+            <p><a href="https://wa.me/5524992671045" target="_blank">📞 WhatsApp: (24) 99267-1045</a></p>
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">📸 Instagram</a>
+                <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">🔵 Facebook</a>
+            </div>
+            <p class="copyright">© 2026 Restaurante Jardim Secreto. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
