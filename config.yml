@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: lucienneb/site-jardim-secreto # <- Troque "site-jardim-secreto" pelo nome exato que você deu ao seu repositório no seu GitHub
+  repo: luciennep/jardimsecretopenedo # <- Troque "site-jardim-secreto" pelo nome exato que você deu ao seu repositório no seu GitHub
   branch: main
 
 media_folder: "/"
