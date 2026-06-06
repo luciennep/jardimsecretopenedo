@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   const params = new URLSearchParams({
     client_id: process.env.GITHUB_CLIENT_ID,
     scope: 'repo,user',
