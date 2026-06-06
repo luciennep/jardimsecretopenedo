@@ -2,10 +2,10 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-
+  base_url: https://jardimsecretopenedo.vercel.app
+  auth_endpoint: api/auth
 media_folder: "/"
 public_folder: "/"
-
 collections:
   - name: "conteudo"
     label: "Conteúdo do Site"
@@ -14,7 +14,7 @@ collections:
         name: "home"
         label: "Página Principal"
         fields:
-          - { label: "Título Principal (Copy)", name: "titulo_principal", widget: "string" }
+          - { label: "Título Principal", name: "titulo_principal", widget: "string" }
           - { label: "Texto de Subtítulo", name: "subtitulo_manifesto", widget: "text" }
-          - { label: "Link do WhatsApp Principal", name: "link_whatsapp", widget: "string" }
-          - { label: "Número do WhatsApp (Texto)", name: "texto_whatsapp", widget: "string" }
+          - { label: "Link do WhatsApp", name: "link_whatsapp", widget: "string" }
+          - { label: "Número do WhatsApp", name: "texto_whatsapp", widget: "string" }
