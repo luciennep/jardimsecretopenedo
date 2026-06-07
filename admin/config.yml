@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: luciennep/jardimsecretopenedo
+  name: git-gateway
   branch: main
-  base_url: https://leafy-gumption-e524ab.netlify.app
 media_folder: "/"
 public_folder: "/"
 collections:
