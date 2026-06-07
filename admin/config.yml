@@ -2,8 +2,7 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  base_url: https://jardimsecretopenedo.vercel.app
-  auth_endpoint: api/auth
+  base_url: https://leafy-gumption-e524ab.netlify.app
 media_folder: "/"
 public_folder: "/"
 collections:
