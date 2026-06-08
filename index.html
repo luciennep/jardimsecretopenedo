@@ -9,7 +9,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', 'Times New Roman', serif;
+            /* Fonte definida apenas como Georgia ou a padrão do sistema */
+            font-family: 'Georgia', sans-serif;
         }
         body {
             background-color: #4a4b3d;
@@ -151,10 +152,10 @@
             gap: 15px;
             align-items: center;
         }
-       .foto-chef {
+        .foto-chef {
             width: 100%;
-            height: auto; /* Alterado de max-height para auto para mostrar a foto toda */
-            object-fit: contain; /* Alterado de cover para contain para não cortar */
+            height: auto;
+            object-fit: contain;
             border-radius: 6px;
             border: 1px solid rgba(185, 181, 148, 0.2);
         }
