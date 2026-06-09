@@ -2,19 +2,105 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  base_url: https://jardimsecretopenedo.vercel.app
-  auth_endpoint: api/auth
-media_folder: "/"
-public_folder: "/"
+  auth_type: pkce
+  app_id: Ov23likuiiqB3ZZ9Y22k
+
+media_folder: "."
+public_folder: "."
+locale: "pt"
+
 collections:
   - name: "conteudo"
     label: "Conteúdo do Site"
     files:
-      - file: "index.html"
-        name: "home"
-        label: "Página Principal"
+      - name: "dados"
+        label: "✏️ Editar Site"
+        file: "dados.json"
+        format: json
         fields:
-          - { label: "Título Principal", name: "titulo_principal", widget: "string" }
-          - { label: "Texto de Subtítulo", name: "subtitulo_manifesto", widget: "text" }
-          - { label: "Link do WhatsApp", name: "link_whatsapp", widget: "string" }
-          - { label: "Número do WhatsApp", name: "texto_whatsapp", widget: "string" }
+          - label: "🏠 Geral"
+            name: "geral"
+            widget: "object"
+            fields:
+              - { label: "Nome do Restaurante", name: "titulo_principal", widget: "string" }
+              - { label: "Frase do Hero (subtítulo)", name: "subtitulo", widget: "text" }
+              - { label: "Texto do Card Hero", name: "hero_card_texto", widget: "text" }
+              - { label: "Botão — Reservar WhatsApp", name: "hero_botao_whatsapp", widget: "string" }
+              - { label: "Botão — Conhecer Experiência", name: "hero_botao_conhecer", widget: "string" }
+
+          - label: "🌹 Popup"
+            name: "popup"
+            widget: "object"
+            fields:
+              - { label: "Título do Popup", name: "popup_titulo", widget: "string", hint: "Use \\n para quebrar linha" }
+              - { label: "Texto do Popup", name: "popup_subtitulo", widget: "text" }
+              - { label: "Botão do Popup", name: "popup_botao", widget: "string" }
+              - { label: "Link do Popup (WhatsApp)", name: "popup_link", widget: "string" }
+
+          - label: "🌿 Experiência"
+            name: "experiencia"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "experiencia_titulo", widget: "string" }
+              - { label: "Texto introdutório", name: "experiencia_lead", widget: "text" }
+              - { label: "Item 1", name: "experiencia_item1", widget: "text" }
+              - { label: "Item 2", name: "experiencia_item2", widget: "text" }
+              - { label: "Item 3", name: "experiencia_item3", widget: "text" }
+
+          - label: "🖼️ Galeria"
+            name: "galeria"
+            widget: "object"
+            fields:
+              - { label: "Texto da Galeria", name: "galeria_lead", widget: "text" }
+
+          - label: "🍽️ Gastronomia"
+            name: "gastronomia"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "gastronomia_titulo", widget: "string" }
+              - { label: "Texto introdutório", name: "gastronomia_lead", widget: "text" }
+              - { label: "Prato 1 — Nome", name: "prato1_nome", widget: "string" }
+              - { label: "Prato 1 — Descrição", name: "prato1_descricao", widget: "text" }
+              - { label: "Prato 2 — Nome", name: "prato2_nome", widget: "string" }
+              - { label: "Prato 2 — Descrição", name: "prato2_descricao", widget: "text" }
+              - { label: "Prato 3 — Nome", name: "prato3_nome", widget: "string" }
+              - { label: "Prato 3 — Descrição", name: "prato3_descricao", widget: "text" }
+
+          - label: "👨‍🍳 Chef"
+            name: "chef"
+            widget: "object"
+            fields:
+              - { label: "Nome do Chef", name: "chef_nome", widget: "string" }
+              - { label: "Frase de Destaque (quote)", name: "chef_quote", widget: "text" }
+              - { label: "Texto sobre o Chef", name: "chef_texto", widget: "text" }
+
+          - label: "⭐ Avaliações"
+            name: "avaliacoes"
+            widget: "object"
+            fields:
+              - { label: "Avaliação 1 — Texto", name: "avaliacao1_texto", widget: "text" }
+              - { label: "Avaliação 1 — Autor", name: "avaliacao1_autor", widget: "string" }
+              - { label: "Avaliação 2 — Texto", name: "avaliacao2_texto", widget: "text" }
+              - { label: "Avaliação 2 — Autor", name: "avaliacao2_autor", widget: "string" }
+              - { label: "Avaliação 3 — Texto", name: "avaliacao3_texto", widget: "text" }
+              - { label: "Avaliação 3 — Autor", name: "avaliacao3_autor", widget: "string" }
+
+          - label: "📍 Localização e Contato"
+            name: "localizacao"
+            widget: "object"
+            fields:
+              - { label: "Texto da seção", name: "localizacao_lead", widget: "text" }
+              - { label: "Endereço (texto)", name: "endereco", widget: "string" }
+              - { label: "Endereço (link Google Maps)", name: "endereco_link", widget: "string" }
+              - { label: "WhatsApp (número exibido)", name: "whatsapp_numero", widget: "string" }
+              - { label: "WhatsApp (link wa.me)", name: "link_whatsapp", widget: "string" }
+              - { label: "Link Instagram", name: "instagram_link", widget: "string" }
+              - { label: "Link Facebook", name: "facebook_link", widget: "string" }
+
+          - label: "📣 Seção Final (CTA)"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "cta_titulo", widget: "string" }
+              - { label: "Texto", name: "cta_lead", widget: "text" }
+              - { label: "Texto do Botão", name: "cta_botao", widget: "string" }
