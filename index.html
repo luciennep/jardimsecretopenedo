@@ -9,64 +9,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0d08;
-  --bg2:#11170e;
-  --bg3:#182012;
-  --cream:#f8f0de;
-  --muted:rgba(248,240,222,.70);
-  --muted2:rgba(248,240,222,.50);
-  --gold:#cdbb78;
-  --gold2:#f0dda2;
-  --leaf:#6f7b49;
-  --wine:#8d3d2f;
-  --wine2:#67291f;
-  --line:rgba(205,187,120,.18);
-  --shadow:0 28px 70px rgba(0,0,0,.42);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
+:root{--bg:#0b0d08;--bg2:#11170e;--bg3:#182012;--cream:#f8f0de;--muted:rgba(248,240,222,.70);--muted2:rgba(248,240,222,.50);--gold:#cdbb78;--gold2:#f0dda2;--leaf:#6f7b49;--wine:#8d3d2f;--wine2:#67291f;--line:rgba(205,187,120,.18);--shadow:0 28px 70px rgba(0,0,0,.42)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 15% 5%,rgba(111,123,73,.22),transparent 32%),radial-gradient(circle at 80% 20%,rgba(205,187,120,.10),transparent 30%),linear-gradient(180deg,#070806 0%,#0b0d08 45%,#10150d 100%)}
 .container{width:min(1180px,calc(100% - 44px));margin-inline:auto}.section{padding:108px 0}.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}.title{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,6vw,74px);font-weight:500;line-height:.96;letter-spacing:-.035em}.title span,.gold{color:var(--gold2)}.lead{font-family:"Cormorant Garamond",serif;color:var(--muted);font-size:clamp(20px,2.3vw,29px);line-height:1.35;margin-top:20px}.text{color:var(--muted);font-size:16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:15px 24px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;transition:.25s ease;white-space:nowrap}.btn-primary{background:linear-gradient(135deg,var(--wine),#b7533e);color:#fff;box-shadow:0 18px 45px rgba(141,61,47,.28)}.btn-primary:hover{transform:translateY(-2px);background:linear-gradient(135deg,#a64b39,var(--wine2))}.btn-secondary{border:1px solid rgba(205,187,120,.35);color:var(--gold2);background:rgba(255,255,255,.03)}.btn-secondary:hover{border-color:var(--gold2);background:rgba(205,187,120,.08);transform:translateY(-2px)}
-
-/* NAV */
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:50;height:74px;background:rgba(8,10,6,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(205,187,120,.12)}.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:44px;height:44px;border-radius:50%;border:1px solid rgba(205,187,120,.65);object-fit:cover}.brand strong{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold2);letter-spacing:.02em}.nav-links{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700}.nav-links a:hover{color:var(--gold2)}.nav-cta{padding:12px 18px;font-size:11px}
-
-/* POPUP */
 .popup-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.68);z-index:99}.popup-overlay.ativo{display:flex}.popup-box{width:min(430px,100%);background:linear-gradient(180deg,#182012,#10150d);border:1px solid rgba(205,187,120,.25);border-radius:24px;padding:42px 30px 32px;text-align:center;box-shadow:var(--shadow);position:relative}.popup-box::before{content:"";position:absolute;inset:12px;border:1px solid rgba(205,187,120,.12);border-radius:18px;pointer-events:none}.popup-fechar{position:absolute;top:12px;right:18px;background:none;border:0;color:var(--gold2);font-size:28px;cursor:pointer;opacity:.65}.popup-icone{font-size:34px;margin-bottom:12px}.popup-titulo{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1.05;color:var(--gold2);margin-bottom:14px}.popup-sub{color:var(--muted);font-size:15px;margin-bottom:24px}
-
-/* HERO */
 .hero{min-height:100svh;display:grid;place-items:center;padding:120px 0 78px;position:relative;overflow:hidden}.hero-bg{position:absolute;inset:0;z-index:-2}.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.06) brightness(.62)}.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,4,.90) 0%,rgba(5,7,4,.62) 42%,rgba(5,7,4,.40) 100%),linear-gradient(180deg,rgba(5,7,4,.25) 0%,rgba(5,7,4,.36) 55%,var(--bg) 100%)}.hero-content{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(300px,.7fr);align-items:center;gap:70px}.hero-logo{width:116px;height:116px;border-radius:50%;object-fit:cover;border:2px solid rgba(205,187,120,.7);box-shadow:0 18px 60px rgba(0,0,0,.5);margin-bottom:30px}.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(70px,10vw,138px);font-weight:500;line-height:.78;letter-spacing:-.07em;margin-bottom:28px}.hero h1 span{display:block;color:var(--gold2);padding-left:.43em}.hero-copy{max-width:680px}.hero-copy .lead{max-width:620px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}.hero-card{background:rgba(12,16,10,.66);backdrop-filter:blur(18px);border:1px solid rgba(205,187,120,.18);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.hero-card img{width:100%;height:360px;object-fit:cover;border-radius:22px}.hero-card p{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--gold2);line-height:1.15;margin-top:18px}.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:-28px;position:relative;z-index:2;background:rgba(205,187,120,.14);border:1px solid rgba(205,187,120,.16);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.trust-item{background:rgba(14,18,11,.92);padding:24px;text-align:center}.trust-item strong{display:block;font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--gold2);font-weight:600}.trust-item span{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);font-weight:800;margin-top:4px}
-
-/* EXPERIENCE */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.photo-frame{position:relative}.photo-frame::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid rgba(205,187,120,.30);border-radius:28px;z-index:-1}.photo-frame img{height:620px;width:100%;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}.mini-list{display:grid;gap:18px;margin-top:34px}.mini-item{display:flex;gap:15px;align-items:flex-start;padding:18px 0;border-top:1px solid rgba(205,187,120,.14)}.mini-item b{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:24px;font-weight:500;line-height:1}.mini-item span{color:var(--muted);font-size:15px}
-
-/* GALLERY */
 .gallery-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:34px}.gallery-head .lead{max-width:620px}.mosaic{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:260px;gap:16px}.mosaic figure{position:relative;overflow:hidden;border-radius:26px;background:#111;border:1px solid rgba(205,187,120,.11)}.mosaic figure:first-child{grid-row:span 2}.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .6s ease;filter:saturate(1.12) contrast(1.04)}.mosaic figure:hover img{transform:scale(1.04);filter:saturate(1.28) contrast(1.06)}.mosaic figcaption{position:absolute;left:18px;right:18px;bottom:16px;color:var(--cream);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;text-shadow:0 4px 20px rgba(0,0,0,.65)}
-
-/* MENU */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}.card{background:linear-gradient(180deg,rgba(24,32,18,.92),rgba(13,17,10,.96));border:1px solid rgba(205,187,120,.14);border-radius:26px;overflow:hidden}.card img{height:260px;width:100%;object-fit:cover}.card-body{padding:24px}.card-body h3{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:500;color:var(--gold2);margin-bottom:8px}.card-body p{color:var(--muted);font-size:15px}
-
-/* CHEF */
 .chef{background:linear-gradient(180deg,rgba(18,24,14,.72),rgba(8,10,6,.2));border-top:1px solid rgba(205,187,120,.10);border-bottom:1px solid rgba(205,187,120,.10)}.chef-card{display:grid;grid-template-columns:.86fr 1.14fr;gap:0;overflow:hidden;border-radius:32px;border:1px solid rgba(205,187,120,.16);background:rgba(8,10,6,.55);box-shadow:var(--shadow)}.chef-card img{height:100%;min-height:560px;width:100%;object-fit:cover}.chef-content{padding:64px}.chef-name{font-family:"Cormorant Garamond",serif;font-size:56px;line-height:1;color:var(--gold2);font-weight:500;margin:10px 0 24px}.quote{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.35;color:var(--muted);font-style:italic;margin-bottom:28px}
-
-/* REVIEWS */
 .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}.review{background:rgba(17,23,14,.76);border:1px solid rgba(205,187,120,.14);border-radius:26px;padding:28px}.stars{color:var(--gold2);letter-spacing:4px;font-size:13px;margin-bottom:20px}.review p{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.35;color:var(--muted);font-style:italic}.review small{display:block;margin-top:24px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:11px}
-
-/* LOCATION */
 .location{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:stretch}.info-box{border:1px solid rgba(205,187,120,.14);background:rgba(17,23,14,.70);border-radius:28px;padding:34px}.info-row{padding:22px 0;border-bottom:1px solid rgba(205,187,120,.12)}.info-row:last-child{border-bottom:0}.info-row b{display:block;color:var(--gold2);font-size:12px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:8px}.info-row a,.info-row span{color:var(--muted);font-size:16px}.map-card{border-radius:28px;overflow:hidden;border:1px solid rgba(205,187,120,.14);min-height:420px;background:rgba(17,23,14,.7)}.map-card iframe{width:100%;height:100%;border:0;min-height:420px;filter:saturate(.9) contrast(.95)}
-
-/* CTA */
 .final-cta{position:relative;overflow:hidden;text-align:center;padding:120px 0;border-top:1px solid rgba(205,187,120,.12)}.final-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(5,7,4,.72),rgba(5,7,4,.86)),url('577430513_1544800283646246_4241617592690428187_n.jpg') center/cover;z-index:-1}.final-cta .title{max-width:760px;margin:0 auto}.final-cta .lead{max-width:650px;margin:22px auto 34px}
-
-/* FOOTER */
-footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background:#080906}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-brand{display:flex;align-items:center;gap:12px}.footer-brand img{width:42px;height:42px;border-radius:50%;border:1px solid rgba(205,187,120,.45)}.footer-brand span{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:24px}.footer-links{display:flex;gap:22px;color:var(--muted2);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}.footer-copy{width:100%;color:rgba(248,240,222,.35);font-size:12px;margin-top:6px}.mobile-reserve{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60}.mobile-reserve .btn{width:100%;box-shadow:0 18px 45px rgba(0,0,0,.45)}
-
+footer{padding:38px 0;border-top:1px solid rgba(205,187,120,.12);background:#080906}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-brand{display:flex;align-items:center;gap:12px}.footer-brand img{width:42px;height:42px;border-radius:50%;border:1px solid rgba(205,187,120,.45)}.footer-brand span{font-family:"Cormorant Garamond",serif;color:var(--gold2);font-size:24px}.footer-links{display:flex;gap:22px;color:var(--muted2);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}.footer-copy{width:100%;color:rgba(248,240,222,.35);font-size:12px;margin-top:6px}
 @media(max-width:980px){.nav-links a:not(.btn){display:none}.hero{padding-top:104px}.hero-content,.split,.chef-card,.location{grid-template-columns:1fr;gap:36px}.hero-card img{height:300px}.trust-row{grid-template-columns:repeat(2,1fr)}.photo-frame img{height:480px}.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:230px}.mosaic figure:first-child{grid-column:1/-1;grid-row:auto;height:360px}.cards,.review-grid{grid-template-columns:1fr}.chef-content{padding:38px}.chef-card img{min-height:420px}.section{padding:82px 0}}
-@media(max-width:640px){.container{width:min(100% - 30px,1180px)}.site-nav{height:66px}.nav-inner{justify-content:center}.brand{width:100%;justify-content:center}.brand img{width:38px;height:38px}.brand strong{font-size:19px}.nav-cta,.nav-links{display:none}.hero{min-height:auto;padding:98px 0 54px;text-align:center}.hero-bg::after{background:linear-gradient(180deg,rgba(5,7,4,.64) 0%,rgba(5,7,4,.82) 52%,var(--bg) 100%)}.hero-content{gap:30px}.hero-copy{margin-inline:auto;text-align:center}.hero-logo{width:92px;height:92px;margin:0 auto 22px}.hero h1{font-size:72px;text-align:center;letter-spacing:-.055em}.hero h1 span{padding-left:0;text-align:center}.hero-copy .lead{margin-left:auto;margin-right:auto}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.hero-card{padding:14px;border-radius:22px}.hero-card img{height:240px;border-radius:18px}.hero-card p{font-size:23px;padding:0 4px 6px;text-align:center}.trust-row{grid-template-columns:1fr 1fr;border-radius:18px}.trust-item{padding:18px 12px}.trust-item strong{font-size:24px}.trust-item span{font-size:9px}.split > div:not(.photo-frame){text-align:center;margin-inline:auto}.split .mini-list{text-align:left}.split .lead{margin-left:auto;margin-right:auto}.title{font-size:46px;text-align:center}.lead{font-size:21px}.section{padding:66px 0}.photo-frame::before{display:none}.photo-frame img{height:380px;border-radius:22px}.gallery-head{display:block;text-align:center}.mosaic{grid-template-columns:1fr;grid-auto-rows:auto}.mosaic figure,.mosaic figure:first-child{height:280px}.card img{height:230px}.chef-name{font-size:42px}.quote{font-size:23px}.popup-box{padding:38px 24px 28px}.popup-titulo{font-size:30px}.footer-inner{align-items:center;flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}footer{padding-bottom:38px}}
+@media(max-width:640px){.container{width:min(100% - 30px,1180px)}.site-nav{height:66px}.nav-inner{justify-content:center}.brand{width:100%;justify-content:center}.brand img{width:38px;height:38px}.brand strong{font-size:19px}.nav-cta,.nav-links{display:none}.hero{min-height:auto;padding:98px 0 54px;text-align:center}.hero-bg::after{background:linear-gradient(180deg,rgba(5,7,4,.64) 0%,rgba(5,7,4,.82) 52%,var(--bg) 100%)}.hero-content{gap:30px}.hero-copy{margin-inline:auto;text-align:center}.hero-logo{width:92px;height:92px;margin:0 auto 22px}.hero h1{font-size:72px;text-align:center;letter-spacing:-.055em}.hero h1 span{padding-left:0}.hero-copy .lead{margin-left:auto;margin-right:auto}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.hero-card{padding:14px;border-radius:22px}.hero-card img{height:240px;border-radius:18px}.hero-card p{font-size:23px;padding:0 4px 6px;text-align:center}.trust-row{grid-template-columns:1fr 1fr;border-radius:18px}.trust-item{padding:18px 12px}.trust-item strong{font-size:24px}.trust-item span{font-size:9px}.split>div:not(.photo-frame){text-align:center;margin-inline:auto}.split .mini-list{text-align:left}.split .lead{margin-left:auto;margin-right:auto}.title{font-size:46px;text-align:center}.lead{font-size:21px}.section{padding:66px 0}.photo-frame::before{display:none}.photo-frame img{height:380px;border-radius:22px}.gallery-head{display:block;text-align:center}.mosaic{grid-template-columns:1fr;grid-auto-rows:auto}.mosaic figure,.mosaic figure:first-child{height:280px}.card img{height:230px}.chef-name{font-size:42px}.quote{font-size:23px}.popup-box{padding:38px 24px 28px}.popup-titulo{font-size:30px}.footer-inner{align-items:center;flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
@@ -75,9 +34,9 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
   <div class="popup-box">
     <button class="popup-fechar" onclick="fecharPopup()" aria-label="Fechar">×</button>
     <div class="popup-icone">🌹</div>
-    <h2 class="popup-titulo">Dia dos Namorados<br>no Jardim Secreto</h2>
-    <p class="popup-sub">Poucas mesas para a Noite mais Romântica do ano. Reserve sua Experiência em meio à Natureza de Penedo.</p>
-    <a href="https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados%20no%20Jardim%20Secreto." target="_blank" rel="noopener" class="btn btn-primary" onclick="fecharPopup()">Reservar minha mesa</a>
+    <h2 class="popup-titulo" id="popup-titulo"></h2>
+    <p class="popup-sub" id="popup-sub"></p>
+    <a id="popup-link" target="_blank" rel="noopener" class="btn btn-primary" onclick="fecharPopup()" id="popup-btn"></a>
   </div>
 </div>
 
@@ -85,14 +44,14 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
   <div class="container nav-inner">
     <a class="brand" href="#topo" aria-label="Jardim Secreto">
       <img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Jardim Secreto">
-      <strong>Jardim Secreto</strong>
+      <strong id="nav-titulo"></strong>
     </a>
     <nav class="nav-links" aria-label="Menu principal">
       <a href="#experiencia">Experiência</a>
       <a href="#galeria">Galeria</a>
       <a href="#chef">Chef</a>
       <a href="#localizacao">Localização</a>
-      <a href="https://wa.me/5524992671045" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Reservar</a>
+      <a id="nav-whatsapp" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Reservar</a>
     </nav>
   </div>
 </header>
@@ -105,15 +64,15 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
         <img class="hero-logo" src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Jardim Secreto">
         <p class="eyebrow">Restaurante em Penedo — RJ</p>
         <h1>Jardim <span>Secreto</span></h1>
-        <p class="lead">Alta gastronomia, Natureza e Romantismo em um Refúgio escondido entre as Montanhas de Penedo.</p>
+        <p class="lead" id="hero-subtitulo"></p>
         <div class="hero-actions">
-          <a href="https://wa.me/5524992671045" target="_blank" rel="noopener" class="btn btn-primary">Reservar pelo WhatsApp</a>
-          <a href="#experiencia" class="btn btn-secondary">Conhecer a Experiência</a>
+          <a id="hero-btn-whatsapp" target="_blank" rel="noopener" class="btn btn-primary"></a>
+          <a href="#experiencia" class="btn btn-secondary" id="hero-btn-conhecer"></a>
         </div>
       </div>
       <aside class="hero-card">
         <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Espaço Aconchegante do Jardim Secreto">
-        <p>Um cenário intimista para jantares especiais, encontros e momentos inesquecíveis.</p>
+        <p id="hero-card-texto"></p>
       </aside>
     </div>
   </section>
@@ -132,12 +91,12 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
       </div>
       <div>
         <p class="eyebrow">A experiência</p>
-        <h2 class="title">Um refúgio gastronômico <span>em meio ao verde</span>.</h2>
-        <p class="lead">Mais do que um restaurante, uma experiência. Um refúgio cercado pela natureza, pensado para encontros, celebrações e memórias inesquecíveis.</p>
+        <h2 class="title" id="exp-titulo"></h2>
+        <p class="lead" id="exp-lead"></p>
         <div class="mini-list">
-          <div class="mini-item"><b>01</b><span>Ambiente romântico e acolhedor para casais, famílias e celebrações especiais.</span></div>
-          <div class="mini-item"><b>02</b><span>Gastronomia autoral com frutos do mar, massas, entradas e pratos pensados para criar memória.</span></div>
-          <div class="mini-item"><b>03</b><span>Localização privilegiada a caminho das Três Cachoeiras, em uma das regiões mais encantadoras de Penedo.</span></div>
+          <div class="mini-item"><b>01</b><span id="exp-item1"></span></div>
+          <div class="mini-item"><b>02</b><span id="exp-item2"></span></div>
+          <div class="mini-item"><b>03</b><span id="exp-item3"></span></div>
         </div>
       </div>
     </div>
@@ -150,14 +109,14 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
           <p class="eyebrow">Galeria real</p>
           <h2 class="title">Natureza, pratos e <span>atmosfera</span>.</h2>
         </div>
-        <p class="lead">Fotos reais do próprio Jardim Secreto, mostrando o que torna o restaurante uma experiência única em Penedo.</p>
+        <p class="lead" id="galeria-lead"></p>
       </div>
       <div class="mosaic">
-        <figure><img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Salão do restaurante Jardim Secreto"><figcaption>Ambiente integrado ao verde</figcaption></figure>
-        <figure><img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Lounge externo do restaurante"><figcaption>Lounge aconchegante</figcaption></figure>
-        <figure><img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Fachada e natureza do restaurante"><figcaption>Fachada e natureza</figcaption></figure>
-        <figure><img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato do restaurante Jardim Secreto"><figcaption>Gastronomia autoral</figcaption></figure>
-        <figure><img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Prato de frutos do mar"><figcaption>Sabores memoráveis</figcaption></figure>
+        <figure><img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Salão"><figcaption>Ambiente integrado ao verde</figcaption></figure>
+        <figure><img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Lounge"><figcaption>Lounge aconchegante</figcaption></figure>
+        <figure><img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Fachada"><figcaption>Fachada e natureza</figcaption></figure>
+        <figure><img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato"><figcaption>Gastronomia autoral</figcaption></figure>
+        <figure><img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Frutos do mar"><figcaption>Sabores memoráveis</figcaption></figure>
       </div>
     </div>
   </section>
@@ -165,24 +124,24 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
   <section class="section" id="gastronomia">
     <div class="container">
       <p class="eyebrow">Gastronomia</p>
-      <h2 class="title">Pratos que combinam técnica, frescor e <span>sensibilidade</span>.</h2>
-      <p class="lead">Da delicadeza das entradas ao frescor dos frutos do mar e massas artesanais, cada criação foi pensada para harmonizar com a atmosfera do restaurante.</p>
+      <h2 class="title" id="gast-titulo"></h2>
+      <p class="lead" id="gast-lead"></p>
       <div class="cards">
-        <article class="card"><img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Tartar Especial"><div class="card-body"><h3>Tartar Especial</h3><p>Entrada elegante, fresca e cheia de personalidade para abrir a experiência.</p></div></article>
-        <article class="card"><img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Camarões grelhados"><div class="card-body"><h3>Camarões Grelhados</h3><p>Frutos do mar preparados com cuidado, equilíbrio e apresentação refinada.</p></div></article>
-        <article class="card"><img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Massa com camarão"><div class="card-body"><h3>Massa com Camarão</h3><p>Conforto, técnica e sabor em um prato que traduz a identidade da casa.</p></div></article>
+        <article class="card"><img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato 1"><div class="card-body"><h3 id="prato1-nome"></h3><p id="prato1-desc"></p></div></article>
+        <article class="card"><img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Prato 2"><div class="card-body"><h3 id="prato2-nome"></h3><p id="prato2-desc"></p></div></article>
+        <article class="card"><img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Prato 3"><div class="card-body"><h3 id="prato3-nome"></h3><p id="prato3-desc"></p></div></article>
       </div>
     </div>
   </section>
 
   <section class="section chef" id="chef">
     <div class="container chef-card">
-      <img src="485358453_1333407071452236_2828232707957084428_n.jpg" alt="Chef Fabiano de Almeida">
+      <img src="485358453_1333407071452236_2828232707957084428_n.jpg" alt="Chef">
       <div class="chef-content">
         <p class="eyebrow">À frente da cozinha</p>
-        <h2 class="chef-name">Chef Fabiano de Almeida</h2>
-        <p class="quote">“Uma cozinha autoral feita para transformar ingredientes selecionados em memórias gastronômicas.”</p>
-        <p class="text">Com olhar refinado e respeito à culinária clássica e contemporânea, o chef combina técnicas precisas com o frescor dos produtos locais. Cada prato é pensado para harmonizar com a atmosfera mágica do restaurante, transformando o jantar em uma lembrança inesquecível.</p>
+        <h2 class="chef-name" id="chef-nome"></h2>
+        <p class="quote" id="chef-quote"></p>
+        <p class="text" id="chef-texto"></p>
       </div>
     </div>
   </section>
@@ -192,9 +151,9 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
       <p class="eyebrow">Avaliações</p>
       <h2 class="title">O que os clientes sentem <span>ao viver essa experiência</span>.</h2>
       <div class="review-grid">
-        <article class="review"><div class="stars">★★★★★</div><p>“Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador.”</p><small>— Ana Paula</small></article>
-        <article class="review"><div class="stars">★★★★★</div><p>“Melhor experiência gastronômica de Penedo. Serviço impecável e pratos muito bem executados.”</p><small>— Ricardo M.</small></article>
-        <article class="review"><div class="stars">★★★★★</div><p>“Cada prato é uma obra de arte. O jardim ao redor cria uma atmosfera única.”</p><small>— Fernanda L.</small></article>
+        <article class="review"><div class="stars">★★★★★</div><p id="av1-texto"></p><small id="av1-autor"></small></article>
+        <article class="review"><div class="stars">★★★★★</div><p id="av2-texto"></p><small id="av2-autor"></small></article>
+        <article class="review"><div class="stars">★★★★★</div><p id="av3-texto"></p><small id="av3-autor"></small></article>
       </div>
     </div>
   </section>
@@ -204,13 +163,11 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
       <div>
         <p class="eyebrow">Como chegar</p>
         <h2 class="title">No caminho das <span>Três Cachoeiras</span>.</h2>
-       <p class="lead" style="margin-bottom:32px;">
-  Um endereço especial em Penedo, perfeito para transformar um almoço ou jantar em passeio completo.
-</p>
+        <p class="lead" id="loc-lead" style="margin-bottom:32px;"></p>
         <div class="info-box">
-          <div class="info-row"><b>Endereço</b><a href="https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/" target="_blank" rel="noopener">Av. das Três Cachoeiras, 3899 — Penedo, Itatiaia/RJ</a></div>
-          <div class="info-row"><b>Reservas</b><a href="https://wa.me/5524992671045" target="_blank" rel="noopener">(24) 99267-1045 — Falar no WhatsApp</a></div>
-          <div class="info-row"><b>Redes sociais</b><a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank" rel="noopener">Facebook</a></div>
+          <div class="info-row"><b>Endereço</b><a id="endereco-link" target="_blank" rel="noopener" id="endereco-texto"></a></div>
+          <div class="info-row"><b>Reservas</b><a id="whatsapp-link" target="_blank" rel="noopener" id="whatsapp-texto"></a></div>
+          <div class="info-row"><b>Redes sociais</b><a id="instagram-link" target="_blank" rel="noopener">Instagram</a><br><a id="facebook-link" target="_blank" rel="noopener">Facebook</a></div>
         </div>
       </div>
       <div class="map-card" aria-label="Mapa do Restaurante Jardim Secreto">
@@ -222,26 +179,106 @@ footer{padding:38px 0 38px;border-top:1px solid rgba(205,187,120,.12);background
   <section class="final-cta" id="reserva">
     <div class="container">
       <p class="eyebrow">Reserve sua mesa</p>
-      <h2 class="title">Pronto para viver uma noite <span>inesquecível?</span></h2>
-      <p class="lead">Fale com o Jardim Secreto pelo WhatsApp e Garanta sua Experiência Gastronômica em Penedo.</p>
-      <a href="https://wa.me/5524992671045" target="_blank" rel="noopener" class="btn btn-primary">Reservar agora pelo WhatsApp</a>
+      <h2 class="title" id="cta-titulo"></h2>
+      <p class="lead" id="cta-lead"></p>
+      <a id="cta-btn" target="_blank" rel="noopener" class="btn btn-primary"></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-inner">
-    <a class="footer-brand" href="#topo"><img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Jardim Secreto"><span>Jardim Secreto</span></a>
-    <div class="footer-links"><a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank" rel="noopener">Facebook</a><a href="https://wa.me/5524992671045" target="_blank" rel="noopener">WhatsApp</a></div>
+    <a class="footer-brand" href="#topo"><img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo"><span id="footer-titulo"></span></a>
+    <div class="footer-links">
+      <a id="footer-instagram" target="_blank" rel="noopener">Instagram</a>
+      <a id="footer-facebook" target="_blank" rel="noopener">Facebook</a>
+      <a id="footer-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
     <p class="footer-copy">© 2026 Restaurante Jardim Secreto. Todos os direitos reservados.</p>
   </div>
 </footer>
 
-
 <script>
 function fecharPopup(){document.getElementById('popup').classList.remove('ativo')}
 document.getElementById('popup').addEventListener('click',function(e){if(e.target===this)fecharPopup()})
-setTimeout(function(){document.getElementById('popup').classList.add('ativo')},1400)
+
+fetch('dados.json?v=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    // Popup
+    document.getElementById('popup-titulo').innerHTML = d.popup_titulo.replace('\n','<br>');
+    document.getElementById('popup-sub').textContent = d.popup_subtitulo;
+    var pb = document.getElementById('popup-link');
+    pb.href = d.popup_link;
+    pb.textContent = d.popup_botao;
+
+    // Nav
+    document.getElementById('nav-titulo').textContent = d.titulo_principal;
+    document.getElementById('nav-whatsapp').href = d.link_whatsapp;
+
+    // Hero
+    document.getElementById('hero-subtitulo').textContent = d.subtitulo;
+    var hbw = document.getElementById('hero-btn-whatsapp');
+    hbw.href = d.link_whatsapp; hbw.textContent = d.hero_botao_whatsapp;
+    document.getElementById('hero-btn-conhecer').textContent = d.hero_botao_conhecer;
+    document.getElementById('hero-card-texto').textContent = d.hero_card_texto;
+
+    // Experiência
+    document.getElementById('exp-titulo').textContent = d.experiencia_titulo;
+    document.getElementById('exp-lead').textContent = d.experiencia_lead;
+    document.getElementById('exp-item1').textContent = d.experiencia_item1;
+    document.getElementById('exp-item2').textContent = d.experiencia_item2;
+    document.getElementById('exp-item3').textContent = d.experiencia_item3;
+
+    // Galeria
+    document.getElementById('galeria-lead').textContent = d.galeria_lead;
+
+    // Gastronomia
+    document.getElementById('gast-titulo').textContent = d.gastronomia_titulo;
+    document.getElementById('gast-lead').textContent = d.gastronomia_lead;
+    document.getElementById('prato1-nome').textContent = d.prato1_nome;
+    document.getElementById('prato1-desc').textContent = d.prato1_descricao;
+    document.getElementById('prato2-nome').textContent = d.prato2_nome;
+    document.getElementById('prato2-desc').textContent = d.prato2_descricao;
+    document.getElementById('prato3-nome').textContent = d.prato3_nome;
+    document.getElementById('prato3-desc').textContent = d.prato3_descricao;
+
+    // Chef
+    document.getElementById('chef-nome').textContent = d.chef_nome;
+    document.getElementById('chef-quote').textContent = '"' + d.chef_quote + '"';
+    document.getElementById('chef-texto').textContent = d.chef_texto;
+
+    // Avaliações
+    document.getElementById('av1-texto').textContent = '"' + d.avaliacao1_texto + '"';
+    document.getElementById('av1-autor').textContent = '— ' + d.avaliacao1_autor;
+    document.getElementById('av2-texto').textContent = '"' + d.avaliacao2_texto + '"';
+    document.getElementById('av2-autor').textContent = '— ' + d.avaliacao2_autor;
+    document.getElementById('av3-texto').textContent = '"' + d.avaliacao3_texto + '"';
+    document.getElementById('av3-autor').textContent = '— ' + d.avaliacao3_autor;
+
+    // Localização
+    document.getElementById('loc-lead').textContent = d.localizacao_lead;
+    var el = document.getElementById('endereco-link');
+    el.href = d.endereco_link; el.textContent = d.endereco;
+    var wl = document.getElementById('whatsapp-link');
+    wl.href = d.link_whatsapp; wl.textContent = d.whatsapp_numero;
+    document.getElementById('instagram-link').href = d.instagram_link;
+    document.getElementById('facebook-link').href = d.facebook_link;
+
+    // CTA
+    document.getElementById('cta-titulo').textContent = d.cta_titulo;
+    document.getElementById('cta-lead').textContent = d.cta_lead;
+    var cb = document.getElementById('cta-btn');
+    cb.href = d.link_whatsapp; cb.textContent = d.cta_botao;
+
+    // Footer
+    document.getElementById('footer-titulo').textContent = d.titulo_principal;
+    document.getElementById('footer-instagram').href = d.instagram_link;
+    document.getElementById('footer-facebook').href = d.facebook_link;
+    document.getElementById('footer-whatsapp').href = d.link_whatsapp;
+
+    setTimeout(function(){document.getElementById('popup').classList.add('ativo')}, 1400);
+  });
 </script>
 </body>
 </html>
