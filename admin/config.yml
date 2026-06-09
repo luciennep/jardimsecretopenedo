@@ -2,7 +2,7 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  auth_type: pkce
+  auth_type: implicit
   app_id: Ov23likuiiqB3ZZ9Y22k
 
 media_folder: "."
@@ -59,3 +59,7 @@ collections:
           - label: "👨‍🍳 Chef"
             name: "chef"
             widget: "object"
+            fields:
+              - { label: "Nome do Chef", name: "chef_nome", widget: "string" }
+              - { label: "Frase de Destaque", name: "chef_quote", widget: "text" }
+              - { label: "Texto sobre o Chef", name: "chef_texto", widget: "text" }
