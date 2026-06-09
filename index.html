@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -94,6 +93,14 @@ nav {
   padding: 120px 24px 80px;
   position: relative;
 }
+.hero-logo-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid var(--ouro);
+    object-fit: cover;
+    margin-bottom: 24px;
+}
 .hero::after {
   content: '';
   position: absolute;
@@ -117,7 +124,14 @@ nav {
   color: var(--branco);
   line-height: 1.08;
   letter-spacing: -0.02em;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+}
+.hero-slogan {
+    font-size: 16px;
+    color: var(--ouro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
 }
 .hero-titulo span { color: var(--ouro); }
 .hero-manifesto {
@@ -147,6 +161,7 @@ nav {
   padding: 16px 36px;
   border-radius: 2px;
   transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
 }
 .btn-prim:hover { background: var(--verm2); transform: translateY(-1px); }
 .btn-sec {
@@ -223,29 +238,6 @@ nav {
 }
 .linha { height: 0.5px; background: var(--borda); }
 
-/* ── PROBLEMA (cards escuros) ── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1px;
-  background: var(--borda);
-  border: 0.5px solid var(--borda);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.card-escuro {
-  background: var(--verde);
-  padding: 32px 28px;
-}
-.card-icone { font-size: 28px; margin-bottom: 14px; display: block; }
-.card-titulo {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 17px;
-  color: var(--ouro2);
-  margin-bottom: 8px;
-}
-.card-texto { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
 /* ── ABAS ── */
 .abas-wrap { position: relative; }
 .abas-nav {
@@ -306,7 +298,6 @@ input[type="radio"] { display: none; }
   transition: filter 0.3s, transform 0.3s;
   display: block;
 }
-.fotos-grid img:hover { filter: saturate(1.5) contrast(1.07); transform: scale(1.015); }
 .aba-intro {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
@@ -356,9 +347,7 @@ input[type="radio"] { display: none; }
   border: 0.5px solid var(--borda);
   border-radius: 4px;
   padding: 28px 24px;
-  transition: border-color 0.2s;
 }
-.aval-card:hover { border-color: rgba(200,185,122,0.3); }
 .estrelas { color: var(--ouro); font-size: 13px; letter-spacing: 3px; margin-bottom: 14px; }
 .aval-texto {
   font-family: 'Libre Baskerville', serif;
@@ -398,13 +387,11 @@ input[type="radio"] { display: none; }
   text-decoration: none;
   line-height: 2;
   display: block;
-  transition: color 0.2s;
 }
-.loc-bloco a:hover { color: var(--ouro2); }
 
 /* ── CTA FINAL ── */
 .cta-secao {
-  background: var(--verde);
+  background: var(--preto);
   border-top: 0.5px solid var(--borda);
   border-bottom: 0.5px solid var(--borda);
   text-align: center;
@@ -429,7 +416,6 @@ footer {
   font-size: 14px;
   color: var(--ouro);
   opacity: 0.7;
-  text-decoration: none;
 }
 .footer-redes { display: flex; gap: 24px; }
 .footer-redes a {
@@ -440,9 +426,7 @@ footer {
   color: var(--muted);
   text-decoration: none;
   opacity: 0.6;
-  transition: opacity 0.2s;
 }
-.footer-redes a:hover { opacity: 1; }
 .footer-copy {
   font-size: 11px;
   color: var(--muted);
@@ -453,101 +437,41 @@ footer {
 }
 
 /* ── POPUP ── */
-.popup-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 999;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
+.popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 999; align-items: center; justify-content: center; padding: 24px; }
 .popup-overlay.ativo { display: flex; }
-.popup-box {
-  background: var(--verde2);
-  border: 0.5px solid rgba(200,185,122,0.25);
-  border-radius: 6px;
-  padding: 44px 32px 36px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  animation: fadeUp 0.35s ease;
-}
-.popup-fechar {
-  position: absolute;
-  top: 16px; right: 20px;
-  background: none; border: none;
-  color: var(--ouro); font-size: 22px;
-  cursor: pointer; opacity: 0.5;
-  transition: opacity 0.2s; line-height: 1;
-}
-.popup-fechar:hover { opacity: 1; }
+.popup-box { background: var(--verde2); border: 0.5px solid rgba(200,185,122,0.25); border-radius: 6px; padding: 44px 32px 36px; max-width: 400px; width: 100%; text-align: center; position: relative; }
+.popup-fechar { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--ouro); font-size: 22px; cursor: pointer; opacity: 0.5; }
 .popup-icone { font-size: 32px; margin-bottom: 14px; }
-.popup-titulo {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 22px;
-  color: var(--ouro2);
-  line-height: 1.35;
-  margin-bottom: 10px;
-}
-.popup-sub {
-  font-size: 13px;
-  color: var(--muted);
-  opacity: 0.8;
-  margin-bottom: 26px;
-  line-height: 1.7;
-}
-.popup-btn {
-  display: block;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fff;
-  background: var(--vermelho);
-  padding: 15px 24px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.popup-btn:hover { background: var(--verm2); }
+.popup-titulo { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 22px; color: var(--ouro2); margin-bottom: 10px; }
+.popup-sub { font-size: 13px; color: var(--muted); margin-bottom: 26px; }
+.popup-btn { display: block; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: var(--vermelho); padding: 15px 24px; border-radius: 2px; text-decoration: none; }
 
-/* ── MOBILE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
-  .nav-logo-nome { font-size: 13px; }
   .secao { padding: 60px 20px; }
   .chef-wrap { grid-template-columns: 1fr; gap: 28px; }
   .fotos-grid { grid-template-columns: 1fr; }
-  .fotos-grid img { height: 220px; }
   .aval-grid { grid-template-columns: 1fr; }
   .loc-grid { grid-template-columns: 1fr; gap: 28px; }
   footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
   .hero-stats { gap: 28px; }
   .aba-label { padding: 12px 16px; font-size: 10px; }
+  .btn-prim { white-space: normal; }
 }
 </style>
 </head>
 <body>
 
-<!-- POPUP -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
     <button class="popup-fechar" onclick="fecharPopup()" aria-label="Fechar">×</button>
     <div class="popup-icone">🌹</div>
     <div class="popup-titulo" id="popup_titulo">Dia dos Namorados<br>com Reservas Antecipadas</div>
     <div class="popup-sub" id="popup_sub">Garanta sua mesa em um cenário inesquecível.<br>Vagas limitadas — reserve agora pelo WhatsApp.</div>
-    <a id="popup_link" href="https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados." target="_blank" class="popup-btn" onclick="fecharPopup()">
-      💬 Reservar pelo WhatsApp
-    </a>
+    <a id="popup_link" href="https://wa.me/5524992671045" target="_blank" class="popup-btn" onclick="fecharPopup()">💬 Reservar pelo WhatsApp</a>
   </div>
 </div>
 
-<!-- NAVBAR -->
 <nav>
   <a href="#" class="nav-logo">
     <img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Jardim Secreto">
@@ -556,13 +480,12 @@ footer {
   <a id="nav_btn" href="https://wa.me/5524992671045" target="_blank" class="nav-btn">Reservar uma mesa →</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Penedo · Itatiaia · Rio de Janeiro</div>
+  <img src="84316458_514454102810630_1653477613420675072_n.jpg" class="hero-logo-img" alt="Logo">
   <h1 class="hero-titulo" id="titulo_principal">Jardim<br><span>Secreto</span></h1>
-  <p class="hero-manifesto" id="manifesto_titulo">Sabores Memoráveis em um<br>Cenário Inesquecível</p>
+  <p class="hero-slogan">Alta Gastronomia & Natureza em Penedo</p>
   <div class="hero-btns">
-    <a id="link_whatsapp" href="https://wa.me/5524992671045" target="_blank" class="btn-prim">Reservar uma mesa →</a>
+    <a id="link_whatsapp" href="https://wa.me/5524992671045" target="_blank" class="btn-prim" style="white-space: nowrap;">Reservar uma mesa →</a>
     <a href="#experiencia" class="btn-sec">Conheça o restaurante</a>
   </div>
   <div class="hero-stats">
@@ -574,7 +497,6 @@ footer {
 
 <div class="linha"></div>
 
-<!-- EXPERIÊNCIA / ABAS -->
 <section class="secao" id="experiencia">
   <div class="secao-eyebrow">A experiência</div>
   <h2 class="secao-titulo">Uma visita que você<br><em>não vai esquecer</em></h2>
@@ -592,20 +514,18 @@ footer {
   </nav>
   <div class="abas-conteudos">
     <div class="aba-conteudo" id="c1">
-      <p class="aba-intro" id="gastronomia_texto">Uma culinária que respeita a terra e celebra o sabor.</p>
       <div class="fotos-grid">
-        <img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato do restaurante">
-        <img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Prato do restaurante">
-        <img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Prato do restaurante">
-        <img src="622392565_18226603924307947_2563733411932213616_n.jpg" alt="Prato do restaurante">
+        <img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato">
+        <img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Prato">
+        <img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Prato">
+        <img src="622392565_18226603924307947_2563733411932213616_n.jpg" alt="Prato">
       </div>
     </div>
     <div class="aba-conteudo" id="c2">
-      <p class="aba-intro" id="espaco_texto">Um ambiente que convida à contemplação e ao encontro.</p>
       <div class="fotos-grid">
-        <img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Espaço do restaurante">
-        <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Espaço do restaurante">
-        <img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Espaço do restaurante">
+        <img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Espaço">
+        <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Espaço">
+        <img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Espaço">
       </div>
     </div>
     <div class="aba-conteudo" id="c3">
@@ -618,22 +538,16 @@ footer {
       </div>
     </div>
     <div class="aba-conteudo" id="c4">
-      <p class="aba-intro">O que nossos clientes dizem sobre a experiência.</p>
       <div class="aval-grid">
         <div class="aval-card">
           <div class="estrelas">★★★★★</div>
-          <p class="aval-texto">"Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador. Voltaremos com certeza!"</p>
+          <p class="aval-texto">"Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador."</p>
           <div class="aval-autor">— Ana Paula, São Paulo</div>
         </div>
         <div class="aval-card">
           <div class="estrelas">★★★★★</div>
-          <p class="aval-texto">"Melhor experiência gastronômica de Penedo. O chef tem um talento incrível e o serviço é impecável."</p>
+          <p class="aval-texto">"Melhor experiência gastronômica de Penedo. O chef tem um talento incrível."</p>
           <div class="aval-autor">— Ricardo M., Rio de Janeiro</div>
-        </div>
-        <div class="aval-card">
-          <div class="estrelas">★★★★★</div>
-          <p class="aval-texto">"Cada prato é uma obra de arte. O jardim ao redor cria uma atmosfera única que você não encontra em nenhum outro lugar."</p>
-          <div class="aval-autor">— Fernanda L., Belo Horizonte</div>
         </div>
       </div>
     </div>
@@ -642,85 +556,38 @@ footer {
 
 <div class="linha"></div>
 
-<!-- LOCALIZAÇÃO -->
 <section class="secao">
   <div class="secao-eyebrow">Como chegar</div>
   <h2 class="secao-titulo">Localização <em>&</em> Contato</h2>
-  <p class="secao-sub">A caminho das Três Cachoeiras, em Penedo — um dos lugares mais bonitos do Rio de Janeiro.</p>
   <div class="loc-grid">
     <div class="loc-bloco">
       <div class="loc-bloco-label">Endereço</div>
-      <a href="https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/" target="_blank">
-        Av. Três Cachoeiras, 389<br>Penedo, Itatiaia — RJ
-      </a>
-      <p style="font-size:12px;opacity:0.4;margin-top:4px;">Clique para abrir no mapa</p>
+      <a href="#">Av. Três Cachoeiras, 389 - Penedo, Itatiaia — RJ</a>
     </div>
     <div class="loc-bloco">
       <div class="loc-bloco-label">Contato</div>
-      <a href="https://wa.me/5524992671045" target="_blank">(24) 99267-1045</a>
-      <a href="https://wa.me/5524992671045" target="_blank">Falar no WhatsApp</a>
-    </div>
-    <div class="loc-bloco">
-      <div class="loc-bloco-label">Redes Sociais</div>
-      <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">Facebook</a>
+      <a href="https://wa.me/5524992671045">(24) 99267-1045</a>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <div class="cta-secao">
-  <div class="secao-eyebrow" style="margin-bottom:14px;">Reserve sua mesa</div>
-  <h2 class="secao-titulo" style="margin-bottom:14px;">Pronto para uma<br><em>experiência inesquecível?</em></h2>
-  <p class="secao-sub" style="margin:0 auto 36px;">Venha Conhecer nosso Espaço!.</p>
-  <a href="https://wa.me/5524992671045" target="_blank" class="btn-prim">Reservar agora pelo WhatsApp →</a>
+  <h2 class="secao-titulo">Pronto para uma<br><em>experiência inesquecível?</em></h2>
+  <a href="https://wa.me/5524992671045" target="_blank" class="btn-prim" style="white-space: nowrap;">Reservar agora pelo WhatsApp →</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">Jardim Secreto</span>
-  <div class="footer-redes">
-    <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">Facebook</a>
-    <a href="https://wa.me/5524992671045" target="_blank">WhatsApp</a>
-  </div>
   <p class="footer-copy">© 2026 Restaurante Jardim Secreto. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-function fecharPopup() {
-  document.getElementById('popup').classList.remove('ativo');
-}
-document.getElementById('popup').addEventListener('click', function(e) {
-  if (e.target === this) fecharPopup();
-});
-
+function fecharPopup() { document.getElementById('popup').classList.remove('ativo'); }
 fetch('/dados.json')
   .then(r => r.json())
   .then(d => {
     if (d.titulo_principal) document.getElementById('titulo_principal').innerHTML = d.titulo_principal.replace(' ', '<br><span>') + '</span>';
-    if (d.subtitulo) document.getElementById('subtitulo').textContent = d.subtitulo;
-    if (d.manifesto_titulo) document.getElementById('manifesto_titulo').textContent = d.manifesto_titulo;
-    if (d.link_whatsapp) {
-      document.getElementById('link_whatsapp').href = d.link_whatsapp;
-      document.getElementById('nav_btn').href = d.link_whatsapp;
-    }
-    if (d.texto_whatsapp) document.getElementById('link_whatsapp').textContent = d.texto_whatsapp + ' →';
-    if (d.gastronomia_texto) document.getElementById('gastronomia_texto').textContent = d.gastronomia_texto;
-    if (d.espaco_texto) document.getElementById('espaco_texto').textContent = d.espaco_texto;
-    if (d.chef_nome) document.getElementById('chef_nome').textContent = d.chef_nome;
-    if (d.chef_texto) document.getElementById('chef_texto').textContent = d.chef_texto;
-    if (d.popup_titulo) document.getElementById('popup_titulo').innerHTML = d.popup_titulo;
-    if (d.popup_sub) document.getElementById('popup_sub').textContent = d.popup_sub;
-    if (d.popup_link) document.getElementById('popup_link').href = d.popup_link;
-    if (d.popup_ativo !== false) {
-      setTimeout(() => document.getElementById('popup').classList.add('ativo'), 1500);
-    }
-  })
-  .catch(() => {
-    setTimeout(() => document.getElementById('popup').classList.add('ativo'), 1500);
   });
 </script>
 </body>
 </html>
-
