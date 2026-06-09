@@ -1,30 +1,61 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: luciennep/jardimsecretopenedo
   branch: main
-media_folder: "/"
-public_folder: "/"
+  auth_type: pkce
+  app_id: Ov23likuiiqB3ZZ9Y22k
+
+media_folder: "."
+public_folder: "."
+locale: "pt"
+
 collections:
   - name: "conteudo"
     label: "Conteúdo do Site"
     files:
-      - file: "dados.json"
-        name: "dados"
-        label: "Textos do Site"
+      - name: "dados"
+        label: "✏️ Editar Site"
+        file: "dados.json"
+        format: json
         fields:
-          - { label: "Título Principal", name: "titulo_principal", widget: "string" }
-          - { label: "Subtítulo", name: "subtitulo", widget: "string" }
-          - { label: "Título do Manifesto", name: "manifesto_titulo", widget: "string" }
-          - { label: "Texto do Manifesto", name: "manifesto_texto", widget: "text" }
-          - { label: "Link do WhatsApp", name: "link_whatsapp", widget: "string" }
-          - { label: "Texto do Botão WhatsApp", name: "texto_whatsapp", widget: "string" }
-          - { label: "Texto Aba Gastronomia", name: "gastronomia_texto", widget: "text" }
-          - { label: "Texto Aba O Espaço", name: "espaco_texto", widget: "text" }
-          - { label: "Nome do Chef", name: "chef_nome", widget: "string" }
-          - { label: "Texto sobre o Chef", name: "chef_texto", widget: "text" }
-          - { label: "Legenda Foto 1", name: "foto1_legenda", widget: "string" }
-          - { label: "Legenda Foto 2", name: "foto2_legenda", widget: "string" }
-          - { label: "Legenda Foto 3", name: "foto3_legenda", widget: "string" }
-          - { label: "Legenda Foto 4", name: "foto4_legenda", widget: "string" }
-          - { label: "Legenda Foto 5", name: "foto5_legenda", widget: "string" }
-          - { label: "Legenda Foto 6", name: "foto6_legenda", widget: "string" }
-          - { label: "Legenda Foto 7", name: "foto7_legenda", widget: "string" }
+          - label: "🏠 Geral"
+            name: "geral"
+            widget: "object"
+            fields:
+              - { label: "Nome do Restaurante", name: "titulo_principal", widget: "string" }
+              - { label: "Frase do Hero", name: "subtitulo", widget: "text" }
+              - { label: "Texto do Card Hero", name: "hero_card_texto", widget: "text" }
+              - { label: "Botão — Reservar WhatsApp", name: "hero_botao_whatsapp", widget: "string" }
+              - { label: "Botão — Conhecer Experiência", name: "hero_botao_conhecer", widget: "string" }
+          - label: "🌹 Popup"
+            name: "popup"
+            widget: "object"
+            fields:
+              - { label: "Título do Popup", name: "popup_titulo", widget: "string" }
+              - { label: "Texto do Popup", name: "popup_subtitulo", widget: "text" }
+              - { label: "Botão do Popup", name: "popup_botao", widget: "string" }
+              - { label: "Link do Popup", name: "popup_link", widget: "string" }
+          - label: "🌿 Experiência"
+            name: "experiencia"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "experiencia_titulo", widget: "string" }
+              - { label: "Texto introdutório", name: "experiencia_lead", widget: "text" }
+              - { label: "Item 1", name: "experiencia_item1", widget: "text" }
+              - { label: "Item 2", name: "experiencia_item2", widget: "text" }
+              - { label: "Item 3", name: "experiencia_item3", widget: "text" }
+          - label: "🍽️ Gastronomia"
+            name: "gastronomia"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "gastronomia_titulo", widget: "string" }
+              - { label: "Texto introdutório", name: "gastronomia_lead", widget: "text" }
+              - { label: "Prato 1 — Nome", name: "prato1_nome", widget: "string" }
+              - { label: "Prato 1 — Descrição", name: "prato1_descricao", widget: "text" }
+              - { label: "Prato 2 — Nome", name: "prato2_nome", widget: "string" }
+              - { label: "Prato 2 — Descrição", name: "prato2_descricao", widget: "text" }
+              - { label: "Prato 3 — Nome", name: "prato3_nome", widget: "string" }
+              - { label: "Prato 3 — Descrição", name: "prato3_descricao", widget: "text" }
+          - label: "👨‍🍳 Chef"
+            name: "chef"
+            widget: "object"
