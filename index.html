@@ -1,408 +1,560 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Jardim Secreto - Penedo, RJ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', sans-serif;
-        }
-        body {
-            background-color: #2e2f25;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        .container {
-            width: 95%;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #2e2f25;
-            min-height: 100vh;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
-        header {
-            text-align: center;
-            padding: 30px 10px 15px 10px;
-        }
-        .logo-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid #b9b594;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-        h1 {
-            font-size: 28px;
-            color: #b9b594;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
-        .subtitulo {
-            font-size: 14px;
-            font-style: italic;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-        .manifesto {
-            text-align: center;
-            padding: 15px 10px 25px 10px;
-        }
-        .manifesto h2 {
-            font-size: 22px;
-            color: #b9b594;
-            font-weight: normal;
-            margin-bottom: 12px;
-        }
-        .manifesto p {
-            font-size: 14px;
-            opacity: 0.9;
-            font-style: italic;
-        }
-        #manifesto_titulo {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            font-weight: 300;
-            font-size: 18px;
-            letter-spacing: 0.04em;
-            color: #c8c3a0;
-        }
-        .btn-principal {
-            display: block;
-            background-color: #9c4333;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin: 10px 0 35px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: background 0.3s;
-            font-size: 15px;
-            letter-spacing: 0.5px; font-family: 'Raleway', sans-serif;
-        }
-        .btn-principal:hover {
-            background-color: #823629;
-        }
-        .abas-container {
-            margin-bottom: 30px;
-        }
-        .abas-botoes {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(185, 181, 148, 0.3);
-            margin-bottom: 20px;
-        }
-        .aba-label {
-            flex: 1;
-            text-align: center;
-            padding: 12px 5px;
-            cursor: pointer;
-            color: #b9b594;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 400;
-            font-size: 13px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            border-bottom: 2px solid transparent;
-        }
-        input[type="radio"] {
-            display: none;
-        }
-        .aba-conteudo {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        #tab1:checked ~ .abas-botoes label[for="tab1"],
-        #tab2:checked ~ .abas-botoes label[for="tab2"],
-        #tab3:checked ~ .abas-botoes label[for="tab3"] {
-            color: #ffffff;
-            border-bottom: 2px solid #9c4333;
-            font-weight: 500;
-        }
-        #tab1:checked ~ .conteudo-container #conteudo-gastronomia,
-        #tab2:checked ~ .conteudo-container #conteudo-espaco,
-        #tab3:checked ~ .conteudo-container #conteudo-chef {
-            display: block;
-        }
-        .aba-copy {
-            font-size: 14px;
-            text-align: center;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            padding: 0 10px;
-            font-style: italic;
-        }
-        .grid-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        #conteudo-gastronomia .foto-item,
-        #conteudo-espaco .foto-item {
-            filter: saturate(1.35) contrast(1.05);
-        }
-        .foto-item {
-            width: 100%;
-            height: auto;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid rgba(185, 181, 148, 0.2);
-        }
-        .perfil-chef {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        .foto-chef {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid rgba(185, 181, 148, 0.2);
-        }
-        .texto-chef {
-            text-align: justify;
-            font-size: 14px;
-            opacity: 0.9;
-            padding: 0 5px;
-            font-style: italic;
-        }
-        .secao-info { font-family: 'Raleway', sans-serif;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(185, 181, 148, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 25px;
-            font-size: 14px;
-        }
-        .secao-info a {
-            color: #b9b594;
-            text-decoration: none;
-        }
-        .secao-info a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-        .titulo-info {
-            font-size: 16px;
-            color: #b9b594;
-            margin-bottom: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 30px 10px;
-            border-top: 1px solid rgba(185, 181, 148, 0.2);
-            margin-top: 30px;
-        }
-        .redes-sociais a {
-            color: #b9b594;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-        }
-        .redes-sociais a:hover {
-            color: #9c4333;
-            text-decoration: underline;
-        }
-        .copyright {
-            font-size: 11px;
-            opacity: 0.5;
-            margin-top: 20px;
-        }
-        .popup-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
-            animation: fadeIn 0.4s ease;
-        }
-        .popup-box {
-            background: #2e2f25;
-            border: 1px solid rgba(185, 181, 148, 0.4);
-            border-radius: 12px;
-            padding: 32px 24px 24px 24px;
-            max-width: 360px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-        }
-        .popup-fechar {
-            position: absolute;
-            top: 12px;
-            right: 16px;
-            background: none;
-            border: none;
-            color: #b9b594;
-            font-size: 22px;
-            cursor: pointer;
-            line-height: 1;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-        .popup-fechar:hover { opacity: 1; }
-        .popup-icone {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-        .popup-titulo {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-style: italic;
-            font-size: 22px;
-            color: #c8c3a0;
-            font-weight: 400;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        .popup-subtitulo {
-            font-size: 13px;
-            opacity: 0.8;
-            margin-bottom: 22px;
-            font-style: italic;
-        }
-        .popup-btn {
-            display: block;
-            background-color: #9c4333;
-            color: white;
-            text-decoration: none;
-            padding: 13px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 0.4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: background 0.3s;
-        }
-        .popup-btn:hover { background-color: #823629; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardim Secreto — Restaurante em Penedo, RJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #2e2f25;
+  --verde-mid: #383930;
+  --verde-borda: rgba(185,181,120,0.15);
+  --ouro: #c8b97a;
+  --ouro-claro: #ddd09a;
+  --vermelho: #9c4333;
+  --vermelho-hover: #7e3328;
+  --branco: #f5f2ea;
+  --cinza: rgba(245,242,234,0.55);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--verde);
+  color: var(--branco);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px 80px;
+  background: var(--verde);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(156,67,51,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ouro);
+  object-fit: cover;
+  margin-bottom: 28px;
+  opacity: 0.95;
+}
+.hero-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+.hero-titulo {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(32px, 7vw, 64px);
+  font-weight: 400;
+  color: var(--ouro-claro);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.hero-subtitulo {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: var(--cinza);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+.hero-manifesto {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: clamp(15px, 2.2vw, 17px);
+  color: var(--ouro);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+.btn {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--vermelho);
+  padding: 16px 36px;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.15s;
+}
+.btn:hover { background: var(--vermelho-hover); transform: translateY(-1px); }
+
+/* ── DIVISOR ── */
+.divisor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  opacity: 0.3;
+}
+.divisor::before, .divisor::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--ouro);
+}
+.divisor-icone { font-size: 12px; color: var(--ouro); }
+
+/* ── SEÇÕES ── */
+.secao {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+.secao-titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 40px;
+  opacity: 0.7;
+}
+
+/* ── ABAS ── */
+.abas-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 0.5px solid var(--verde-borda);
+  margin-bottom: 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.abas-nav::-webkit-scrollbar { display: none; }
+input[type="radio"] { display: none; }
+.aba-label {
+  flex-shrink: 0;
+  padding: 14px 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200,185,122,0.5);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.aba-label:hover { color: var(--ouro); }
+#tab1:checked ~ .abas-nav label[for="tab1"],
+#tab2:checked ~ .abas-nav label[for="tab2"],
+#tab3:checked ~ .abas-nav label[for="tab3"],
+#tab4:checked ~ .abas-nav label[for="tab4"] {
+  color: var(--branco);
+  border-bottom-color: var(--vermelho);
+}
+.aba-conteudo { display: none; animation: fadeUp 0.4s ease; }
+#tab1:checked ~ .abas-conteudos #c1,
+#tab2:checked ~ .abas-conteudos #c2,
+#tab3:checked ~ .abas-conteudos #c3,
+#tab4:checked ~ .abas-conteudos #c4 { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── GRID FOTOS ── */
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.grid-fotos img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: saturate(1.3) contrast(1.04);
+  transition: filter 0.3s, transform 0.3s;
+  display: block;
+}
+.grid-fotos img:hover { filter: saturate(1.5) contrast(1.06); transform: scale(1.01); }
+.foto-chef {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+  margin: 0 auto 28px;
+}
+
+/* ── TEXTO ABA ── */
+.aba-intro {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cinza);
+  margin-bottom: 28px;
+  max-width: 620px;
+}
+.chef-nome {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
+  color: var(--ouro-claro);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.chef-bio {
+  font-size: 15px;
+  color: var(--cinza);
+  font-style: italic;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ── AVALIAÇÕES ── */
+.avaliacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.avaliacao-card {
+  background: var(--verde-mid);
+  border: 0.5px solid var(--verde-borda);
+  border-radius: 4px;
+  padding: 22px 20px;
+}
+.estrelas { color: var(--ouro); font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+.avaliacao-texto {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--cinza);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.avaliacao-autor {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.7;
+}
+
+/* ── INFO / CONTATO ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-top: 16px;
+}
+.info-bloco-titulo {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+.info-bloco a, .info-bloco p {
+  font-size: 14px;
+  color: var(--cinza);
+  text-decoration: none;
+  line-height: 1.9;
+  display: block;
+  transition: color 0.2s;
+  font-family: 'Raleway', sans-serif;
+}
+.info-bloco a:hover { color: var(--ouro-claro); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--verde-borda);
+  padding: 36px 24px;
+  text-align: center;
+}
+.footer-redes { margin-bottom: 16px; }
+.footer-redes a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  text-decoration: none;
+  margin: 0 16px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.footer-redes a:hover { opacity: 1; }
+.footer-copy {
+  font-size: 11px;
+  color: var(--cinza);
+  opacity: 0.35;
+}
+
+/* ── POPUP ── */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.popup-overlay.ativo { display: flex; animation: fadeUp 0.35s ease; }
+.popup-box {
+  background: var(--verde-mid);
+  border: 0.5px solid rgba(200,185,122,0.3);
+  border-radius: 6px;
+  padding: 40px 28px 32px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.popup-fechar {
+  position: absolute;
+  top: 14px; right: 18px;
+  background: none; border: none;
+  color: var(--ouro); font-size: 22px;
+  cursor: pointer; opacity: 0.6;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+.popup-fechar:hover { opacity: 1; }
+.popup-icone { font-size: 32px; margin-bottom: 12px; }
+.popup-titulo {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: var(--ouro-claro);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+.popup-sub {
+  font-size: 13px;
+  color: var(--cinza);
+  opacity: 0.8;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.popup-btn {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--vermelho);
+  padding: 14px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.popup-btn:hover { background: var(--vermelho-hover); }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .hero { padding: 50px 20px 60px; }
+  .aba-label { padding: 12px 16px; font-size: 10px; }
+  .grid-fotos { grid-template-columns: 1fr; }
+  .grid-fotos img { height: 220px; }
+  .info-grid { grid-template-columns: 1fr; gap: 24px; }
+  .avaliacoes-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-    <div class="popup-overlay" id="popup">
-        <div class="popup-box">
-            <button class="popup-fechar" onclick="document.getElementById('popup').style.display='none'" aria-label="Fechar">×</button>
-            <div class="popup-icone">🌹</div>
-            <div class="popup-titulo">Dia dos Namorados<br>com Reservas Antecipadas</div>
-            <div class="popup-subtitulo">Garanta sua Mesa em um Cenário Super Romântico!<br>Vagas limitadas — Reserve Agora pelo WhatsApp.</div>
-            <a href="https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados." target="_blank" class="popup-btn" onclick="document.getElementById('popup').style.display='none'">
-                💬 Reservar pelo WhatsApp
-            </a>
-        </div>
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <button class="popup-fechar" onclick="fecharPopup()" aria-label="Fechar">×</button>
+    <div class="popup-icone">🌹</div>
+    <div class="popup-titulo" id="popup_titulo">Dia dos Namorados<br>com Reservas Antecipadas</div>
+    <div class="popup-sub" id="popup_sub">Garanta sua mesa em um cenário inesquecível.<br>Vagas limitadas — reserve agora pelo WhatsApp.</div>
+    <a id="popup_link" href="https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados." target="_blank" class="popup-btn" onclick="fecharPopup()">
+      💬 Reservar pelo WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Jardim Secreto" class="hero-logo">
+  <div class="hero-eyebrow" id="hero_eyebrow">Penedo · Itatiaia · RJ</div>
+  <h1 class="hero-titulo" id="titulo_principal">Jardim Secreto</h1>
+  <p class="hero-subtitulo" id="subtitulo">Restaurante · Penedo, RJ</p>
+  <p class="hero-manifesto" id="manifesto_titulo">Sabores Memoráveis em um Cenário Inesquecível</p>
+  <a id="link_whatsapp" href="https://wa.me/5524992671045" target="_blank" class="btn" id="btn_whatsapp">Reservar uma mesa</a>
+</section>
+
+<div class="divisor"><span class="divisor-icone">✦</span></div>
+
+<!-- ABAS -->
+<section class="secao">
+  <input type="radio" id="tab1" name="abas" checked>
+  <input type="radio" id="tab2" name="abas">
+  <input type="radio" id="tab3" name="abas">
+  <input type="radio" id="tab4" name="abas">
+  <nav class="abas-nav">
+    <label for="tab1" class="aba-label">Gastronomia</label>
+    <label for="tab2" class="aba-label">O Espaço</label>
+    <label for="tab3" class="aba-label">O Chef</label>
+    <label for="tab4" class="aba-label">Avaliações</label>
+  </nav>
+  <div class="abas-conteudos">
+
+    <div class="aba-conteudo" id="c1">
+      <p class="aba-intro" id="gastronomia_texto">Uma culinária que respeita a terra e celebra o sabor.</p>
+      <div class="grid-fotos">
+        <img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="Prato do restaurante">
+        <img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="Prato do restaurante">
+        <img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="Prato do restaurante">
+        <img src="622392565_18226603924307947_2563733411932213616_n.jpg" alt="Prato do restaurante">
+      </div>
     </div>
 
-    <div class="container">
-        <header>
-            <img src="84316458_514454102810630_1653477613420675072_n.jpg" alt="Logo Restaurante Jardim Secreto" class="logo-img">
-            <h1 id="titulo_principal"></h1>
-            <div class="subtitulo" id="subtitulo"></div>
-        </header>
-        <div class="manifesto">
-            <h2 id="manifesto_titulo"></h2>
-            <p id="manifesto_texto"></p>
-        </div>
-        <a id="link_whatsapp" href="#" target="_blank" class="btn-principal"></a>
-        <div class="abas-container">
-            <input type="radio" id="tab1" name="abas" checked>
-            <input type="radio" id="tab2" name="abas">
-            <input type="radio" id="tab3" name="abas">
-            <div class="abas-botoes">
-                <label for="tab1" class="aba-label">Gastronomia</label>
-                <label for="tab2" class="aba-label">O Espaço</label>
-                <label for="tab3" class="aba-label">O Chef</label>
-            </div>
-            <div class="conteudo-container">
-                <div class="aba-conteudo" id="conteudo-gastronomia">
-                    <p class="aba-copy" id="gastronomia_texto"></p>
-                    <div class="grid-vertical">
-                        <img src="490346888_1357326275726982_8359146818312617217_n.jpg" alt="" id="alt_foto1" class="foto-item">
-                        <img src="490597404_1356730009119942_3417664130621602661_n.jpg" alt="" id="alt_foto2" class="foto-item">
-                        <img src="556653024_1509380143854927_6965004180208987900_n.jpg" alt="" id="alt_foto3" class="foto-item">
-                        <img src="622392565_18226603924307947_2563733411932213616_n.jpg" alt="" id="alt_foto4" class="foto-item">
-                    </div>
-                </div>
-                <div class="aba-conteudo" id="conteudo-espaco">
-                    <p class="aba-copy" id="espaco_texto"></p>
-                    <div class="grid-vertical">
-                        <img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="" id="alt_foto5" class="foto-item">
-                        <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="" id="alt_foto6" class="foto-item">
-                        <img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="" id="alt_foto7" class="foto-item">
-                    </div>
-                </div>
-                <div class="aba-conteudo" id="conteudo-chef">
-                    <div class="perfil-chef">
-                        <img src="485358453_1333407071452236_2828232707957084428_n.jpg" alt="Chef" class="foto-chef">
-                        <div class="texto-chef">
-                            <h3 id="chef_nome" style="color: #b9b594; font-weight: normal; margin-bottom: 8px; text-align: center; font-style: italic;"></h3>
-                            <p id="chef_texto"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="secao-info">
-            <div class="titulo-info">📍 Localização & Contato</div>
-            <p><a href="https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0xbc4d4fe8b5343b:0x643be32c6c26272!2m2!1d-44.534931!2d-22.4260663?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">🗺️ Av. Três Cachoeiras, 389 - Penedo, Itatiaia — RJ</a></p>
-            <p style="font-size: 12px; color: #b9b594; margin-bottom: 10px;">(A caminho das Três Cachoeiras — Clique para abrir no mapa)</p>
-            <p><a href="https://wa.me/5524992671045" target="_blank">📞 WhatsApp: (24) 99267-1045</a></p>
-        </div>
-        <footer>
-            <div class="redes-sociais">
-                <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">📸 Instagram</a>
-                <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">🔵 Facebook</a>
-            </div>
-            <p class="copyright">© 2026 Restaurante Jardim Secreto. Todos os direitos reservados.</p>
-        </footer>
+    <div class="aba-conteudo" id="c2">
+      <p class="aba-intro" id="espaco_texto">Um ambiente que convida à contemplação e ao encontro.</p>
+      <div class="grid-fotos">
+        <img src="591396000_1564238228369118_3598150911237685494_n.jpg" alt="Espaço do restaurante">
+        <img src="577430513_1544800283646246_4241617592690428187_n.jpg" alt="Espaço do restaurante">
+        <img src="589074763_1561584431967831_5758677365142553001_n.jpg" alt="Espaço do restaurante">
+      </div>
     </div>
-    <script>
-        fetch('/dados.json')
-            .then(r => r.json())
-            .then(d => {
-                document.getElementById('titulo_principal').textContent = d.titulo_principal;
-                document.getElementById('subtitulo').textContent = d.subtitulo;
-                document.getElementById('manifesto_titulo').textContent = d.manifesto_titulo;
-                document.getElementById('manifesto_texto').textContent = d.manifesto_texto;
-                document.getElementById('link_whatsapp').href = d.link_whatsapp;
-                document.getElementById('link_whatsapp').textContent = d.texto_whatsapp;
-                document.getElementById('gastronomia_texto').textContent = d.gastronomia_texto;
-                document.getElementById('espaco_texto').textContent = d.espaco_texto;
-                document.getElementById('chef_nome').textContent = d.chef_nome;
-                document.getElementById('chef_texto').textContent = d.chef_texto;
-                document.getElementById('alt_foto1').alt = d.foto1_legenda;
-                document.getElementById('alt_foto2').alt = d.foto2_legenda;
-                document.getElementById('alt_foto3').alt = d.foto3_legenda;
-                document.getElementById('alt_foto4').alt = d.foto4_legenda;
-                document.getElementById('alt_foto5').alt = d.foto5_legenda;
-                document.getElementById('alt_foto6').alt = d.foto6_legenda;
-                document.getElementById('alt_foto7').alt = d.foto7_legenda;
-            });
 
-        setTimeout(() => {
-            document.getElementById('popup').style.display = 'flex';
-        }, 1500);
-        document.getElementById('popup').addEventListener('click', function(e) {
-            if (e.target === this) this.style.display = 'none';
-        });
-    </script>
+    <div class="aba-conteudo" id="c3">
+      <img src="485358453_1333407071452236_2828232707957084428_n.jpg" alt="Chef" class="foto-chef">
+      <h3 class="chef-nome" id="chef_nome">O Chef</h3>
+      <p class="chef-bio" id="chef_texto">Uma história de paixão pela gastronomia e pelo território.</p>
+    </div>
+
+    <div class="aba-conteudo" id="c4">
+      <p class="aba-intro">O que nossos clientes dizem sobre a experiência.</p>
+      <div class="avaliacoes-grid">
+        <div class="avaliacao-card">
+          <div class="estrelas">★★★★★</div>
+          <p class="avaliacao-texto">"Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador. Voltaremos com certeza!"</p>
+          <div class="avaliacao-autor">— Ana Paula, São Paulo</div>
+        </div>
+        <div class="avaliacao-card">
+          <div class="estrelas">★★★★★</div>
+          <p class="avaliacao-texto">"Melhor experiência gastronômica de Penedo. O chef tem um talento incrível e o serviço é impecável."</p>
+          <div class="avaliacao-autor">— Ricardo M., Rio de Janeiro</div>
+        </div>
+        <div class="avaliacao-card">
+          <div class="estrelas">★★★★★</div>
+          <p class="avaliacao-texto">"Cada prato é uma obra de arte. O jardim ao redor cria uma atmosfera única que você não encontra em nenhum outro lugar."</p>
+          <div class="avaliacao-autor">— Fernanda L., Belo Horizonte</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divisor"><span class="divisor-icone">✦</span></div>
+
+<!-- LOCALIZAÇÃO -->
+<section class="secao" style="padding-top: 50px;">
+  <div class="secao-titulo">Localização & Contato</div>
+  <div class="info-grid">
+    <div class="info-bloco">
+      <div class="info-bloco-titulo">Endereço</div>
+      <a href="https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/" target="_blank">
+        Av. Três Cachoeiras, 389<br>Penedo, Itatiaia — RJ
+      </a>
+      <p style="font-size:12px; opacity:0.5; margin-top:4px;">A caminho das Três Cachoeiras</p>
+    </div>
+    <div class="info-bloco">
+      <div class="info-bloco-titulo">Contato</div>
+      <a href="https://wa.me/5524992671045" target="_blank">(24) 99267-1045</a>
+      <a href="https://wa.me/5524992671045" target="_blank">WhatsApp</a>
+    </div>
+    <div class="info-bloco">
+      <div class="info-bloco-titulo">Redes Sociais</div>
+      <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-redes">
+    <a href="https://www.instagram.com/restaurante_jardimsecreto/?hl=pt" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR" target="_blank">Facebook</a>
+    <a href="https://wa.me/5524992671045" target="_blank">WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2026 Restaurante Jardim Secreto. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+function fecharPopup() {
+  document.getElementById('popup').classList.remove('ativo');
+}
+document.getElementById('popup').addEventListener('click', function(e) {
+  if (e.target === this) fecharPopup();
+});
+
+fetch('/dados.json')
+  .then(r => r.json())
+  .then(d => {
+    if (d.titulo_principal) document.getElementById('titulo_principal').textContent = d.titulo_principal;
+    if (d.subtitulo) document.getElementById('subtitulo').textContent = d.subtitulo;
+    if (d.manifesto_titulo) document.getElementById('manifesto_titulo').textContent = d.manifesto_titulo;
+    if (d.manifesto_texto) document.getElementById('manifesto_titulo').textContent = d.manifesto_titulo;
+    if (d.link_whatsapp) document.getElementById('link_whatsapp').href = d.link_whatsapp;
+    if (d.texto_whatsapp) document.getElementById('link_whatsapp').textContent = d.texto_whatsapp;
+    if (d.gastronomia_texto) document.getElementById('gastronomia_texto').textContent = d.gastronomia_texto;
+    if (d.espaco_texto) document.getElementById('espaco_texto').textContent = d.espaco_texto;
+    if (d.chef_nome) document.getElementById('chef_nome').textContent = d.chef_nome;
+    if (d.chef_texto) document.getElementById('chef_texto').textContent = d.chef_texto;
+    if (d.popup_titulo) document.getElementById('popup_titulo').innerHTML = d.popup_titulo;
+    if (d.popup_sub) document.getElementById('popup_sub').textContent = d.popup_sub;
+    if (d.popup_link) document.getElementById('popup_link').href = d.popup_link;
+    if (d.popup_ativo !== false) {
+      setTimeout(() => document.getElementById('popup').classList.add('ativo'), 1500);
+    }
+  })
+  .catch(() => {
+    setTimeout(() => document.getElementById('popup').classList.add('ativo'), 1500);
+  });
+</script>
 </body>
 </html>
