@@ -2,7 +2,7 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  base_url: https://decap-proxy.vercel.app
+  base_url: https://jardimsecretopenedo.vercel.app/api
 
 media_folder: "."
 public_folder: "."
