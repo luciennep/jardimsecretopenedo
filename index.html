@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurante Jardim Secreto - Penedo, RJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-       
             font-family: 'Georgia', sans-serif;
         }
         body {
@@ -44,11 +44,13 @@
             font-weight: normal;
             letter-spacing: 1px;
         }
+        /* Estilo sofisticado para o subtítulo */
         .subtitulo {
-            font-size: 14px;
+            font-size: 18px;
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-            opacity: 0.8;
-            margin-top: 5px;
+            color: #e8e6d0;
+            margin-top: 10px;
         }
         .manifesto {
             text-align: center;
@@ -92,13 +94,15 @@
             border-bottom: 1px solid rgba(185, 181, 148, 0.3);
             margin-bottom: 20px;
         }
+        /* Fonte sofisticada nas abas */
         .aba-label {
             flex: 1;
             text-align: center;
             padding: 12px 5px;
             cursor: pointer;
             color: #b9b594;
-            font-size: 14px;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
             transition: all 0.3s;
             border-bottom: 2px solid transparent;
         }
@@ -159,7 +163,6 @@
             border-radius: 6px;
             border: 1px solid rgba(185, 181, 148, 0.2);
         }
- 
         .texto-chef {
             text-align: justify;
             font-size: 14px;
@@ -222,7 +225,7 @@
             <h2 id="manifesto_titulo"></h2>
             <p id="manifesto_texto"></p>
         </div>
-        <a id="link_whatsapp" href="#" target="_blank" class="btn-principal" id="btn_whatsapp"></a>
+        <a id="link_whatsapp" href="#" target="_blank" class="btn-principal"></a>
         <div class="abas-container">
             <input type="radio" id="tab1" name="abas" checked>
             <input type="radio" id="tab2" name="abas">
