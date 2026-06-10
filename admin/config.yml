@@ -2,7 +2,7 @@ backend:
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  base_url: https://jardimsecretopenedo.vercel.app
+  base_url: https://jardimsecretopenedo-29fw.vercel.app
   auth_endpoint: auth
 
 media_folder: "."
