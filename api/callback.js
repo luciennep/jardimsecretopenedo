@@ -27,27 +27,19 @@ export default async function handler(req, res) {
 <script>
 (function() {
   var message = ${JSON.stringify(successMsg)};
-  var origins = [
-    "https://jardimsecretopenedo.vercel.app",
-    "*"
-  ];
-  
-  // Tenta enviar o token para o CMS a cada 200ms por 10 segundos
-  var count = 0;
-  var interval = setInterval(function() {
-    count++;
-    try {
-      if (window.opener) {
-        origins.forEach(function(origin) {
-          window.opener.postMessage(message, origin);
-        });
-      }
-    } catch(e) {}
-    if (count >= 50) {
-      clearInterval(interval);
-      window.close();
+  var sent = false;
+
+  function receiveMessage(e) {
+    if (sent) return;
+    if (e.data === "authorizing:github") {
+      sent = true;
+      window.opener.postMessage(message, e.origin);
+      setTimeout(function() { window.close(); }, 500);
     }
-  }, 200);
+  }
+
+  window.addEventListener("message", receiveMessage, false);
+  window.opener.postMessage("authorizing:github", "*");
 })();
 </script>
 </body>
