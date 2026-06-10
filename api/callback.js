@@ -27,19 +27,10 @@ export default async function handler(req, res) {
 <script>
 (function() {
   var message = ${JSON.stringify(successMsg)};
-  var sent = false;
-
-  function receiveMessage(e) {
-    if (sent) return;
-    if (e.data === "authorizing:github") {
-      sent = true;
-      window.opener.postMessage(message, e.origin);
-      setTimeout(function() { window.close(); }, 500);
-    }
+  if (window.opener) {
+    window.opener.postMessage(message, "https://jardimsecretopenedo.vercel.app");
   }
-
-  window.addEventListener("message", receiveMessage, false);
-  window.opener.postMessage("authorizing:github", "*");
+  window.close();
 })();
 </script>
 </body>
