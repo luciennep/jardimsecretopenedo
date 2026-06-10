@@ -8,12 +8,36 @@
 </head>
 <body>
 <script>
+  // Intercepta window.open para redirecionar auth para nosso relay
   var _open = window.open;
   window.open = function(url, name, features) {
     if (url && url.indexOf('api.netlify.com') !== -1) {
       url = 'https://jardimsecretopenedo.vercel.app/api/auth';
     }
     return _open.call(window, url, name, features);
+  };
+
+  // Intercepta addEventListener para capturar o listener do CMS
+  // e repassar mensagens de qualquer origem
+  var _addEventListener = window.addEventListener;
+  window.addEventListener = function(type, listener, options) {
+    if (type === 'message') {
+      var wrappedListener = function(e) {
+        // Cria um evento falso com origem da Netlify para enganar o CMS
+        if (e.data && typeof e.data === 'string' && e.data.indexOf('authorization:github:success') === 0) {
+          var fakeEvent = new MessageEvent('message', {
+            data: e.data,
+            origin: 'https://api.netlify.com',
+            source: e.source
+          });
+          listener(fakeEvent);
+          return;
+        }
+        listener(e);
+      };
+      return _addEventListener.call(this, type, wrappedListener, options);
+    }
+    return _addEventListener.call(this, type, listener, options);
   };
 </script>
 <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
