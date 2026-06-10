@@ -1,9 +1,12 @@
 backend:
+  # Usa o fluxo de autenticação PKCE do GitHub em vez da Netlify.
+  # Isso elimina chamadas para api.netlify.com e utiliza o GitHub App.
   name: github
   repo: luciennep/jardimsecretopenedo
   branch: main
-  base_url: https://jardimsecretopenedo.vercel.app
-  auth_endpoint: /api/auth
+  # ID do GitHub App (já existente no seu repositório); necessário para o PKCE.
+  auth_type: pkce
+  app_id: Ov23likuiiqB3ZZ9Y22k
 
 media_folder: "."
 public_folder: "."
