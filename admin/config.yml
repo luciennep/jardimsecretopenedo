@@ -18,48 +18,14 @@ collections:
         file: "dados.json"
         format: json
         fields:
-          - label: "🏠 Geral"
-            name: "geral"
-            widget: "object"
-            fields:
-              - { label: "Nome do Restaurante", name: "titulo_principal", widget: "string" }
-              - { label: "Frase do Hero", name: "subtitulo", widget: "text" }
-              - { label: "Texto do Card Hero", name: "hero_card_texto", widget: "text" }
-              - { label: "Botão — Reservar WhatsApp", name: "hero_botao_whatsapp", widget: "string" }
-              - { label: "Botão — Conhecer Experiência", name: "hero_botao_conhecer", widget: "string" }
-          - label: "🌹 Popup"
-            name: "popup"
-            widget: "object"
-            fields:
-              - { label: "Título do Popup", name: "popup_titulo", widget: "string" }
-              - { label: "Texto do Popup", name: "popup_subtitulo", widget: "text" }
-              - { label: "Botão do Popup", name: "popup_botao", widget: "string" }
-              - { label: "Link do Popup", name: "popup_link", widget: "string" }
-          - label: "🌿 Experiência"
-            name: "experiencia"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "experiencia_titulo", widget: "string" }
-              - { label: "Texto introdutório", name: "experiencia_lead", widget: "text" }
-              - { label: "Item 1", name: "experiencia_item1", widget: "text" }
-              - { label: "Item 2", name: "experiencia_item2", widget: "text" }
-              - { label: "Item 3", name: "experiencia_item3", widget: "text" }
-          - label: "🍽️ Gastronomia"
-            name: "gastronomia"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "gastronomia_titulo", widget: "string" }
-              - { label: "Texto introdutório", name: "gastronomia_lead", widget: "text" }
-              - { label: "Prato 1 — Nome", name: "prato1_nome", widget: "string" }
-              - { label: "Prato 1 — Descrição", name: "prato1_descricao", widget: "text" }
-              - { label: "Prato 2 — Nome", name: "prato2_nome", widget: "string" }
-              - { label: "Prato 2 — Descrição", name: "prato2_descricao", widget: "text" }
-              - { label: "Prato 3 — Nome", name: "prato3_nome", widget: "string" }
-              - { label: "Prato 3 — Descrição", name: "prato3_descricao", widget: "text" }
-          - label: "👨‍🍳 Chef"
-            name: "chef"
-            widget: "object"
-            fields:
-              - { label: "Nome do Chef", name: "chef_nome", widget: "string" }
-              - { label: "Frase de Destaque", name: "chef_quote", widget: "text" }
-              - { label: "Texto sobre o Chef", name: "chef_texto", widget: "text" }
+          - { label: "Título principal", name: "titulo_principal", widget: "string", required: false }
+          - { label: "Subtítulo", name: "subtitulo", widget: "text", required: false }
+          - { label: "WhatsApp", name: "link_whatsapp", widget: "string", required: false }
+          - { label: "Texto do botão WhatsApp", name: "texto_whatsapp", widget: "string", required: false }
+          - { label: "Texto Jardim Secreto", name: "experiencia_lead", widget: "text", required: false }
+          - { label: "Nome do Chef", name: "chef_nome", widget: "string", required: false }
+          - { label: "Texto do Chef", name: "chef_texto", widget: "text", required: false }
+          - { label: "Popup ativo", name: "popup_ativo", widget: "boolean", required: false }
+          - { label: "Título do Popup", name: "popup_titulo", widget: "string", required: false }
+          - { label: "Texto do Popup", name: "popup_subtitulo", widget: "text", required: false }
+          - { label: "Link do Popup", name: "popup_link", widget: "string", required: false }
