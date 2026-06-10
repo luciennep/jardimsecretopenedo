@@ -6,10 +6,7 @@ export default async function handler(req, res) {
   try {
     const response = await fetch("https://github.com/login/oauth/access_token", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         client_id: process.env.GITHUB_CLIENT_ID,
         client_secret: process.env.GITHUB_CLIENT_SECRET,
@@ -25,32 +22,18 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", "text/html");
     return res.send(`<!doctype html>
 <html>
-<head><meta charset="utf-8" /><title>Autenticando...</title></head>
-<body>
-<p>Autenticando...</p>
+<head><meta charset="utf-8"/><title>Autenticando...</title></head>
+<body><p>Autenticando...</p>
 <script>
 (function() {
   var message = ${JSON.stringify(successMsg)};
-
   function receiveMessage(e) {
-    console.log("receiveMessage", e);
+    // CMS enviou "authorizing:github" — respondemos com o token usando e.origin
     window.opener.postMessage(message, e.origin);
-    window.opener.postMessage(message, "*");
   }
-
   window.addEventListener("message", receiveMessage, false);
-
-  // Inicia o handshake — CMS responde com uma mensagem, aí enviamos o token
+  // Inicia o handshake: avisa o CMS que estamos prontos
   window.opener.postMessage("authorizing:github", "*");
-
-  // Fallback: envia mesmo sem resposta do CMS
-  setTimeout(function() {
-    window.opener.postMessage(message, "*");
-  }, 1000);
-  setTimeout(function() {
-    window.opener.postMessage(message, "*");
-    window.close();
-  }, 3000);
 })();
 </script>
 </body>
