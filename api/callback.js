@@ -27,13 +27,27 @@ export default async function handler(req, res) {
 <script>
 (function() {
   var message = ${JSON.stringify(successMsg)};
-  function receiveMessage(e) {
-    // CMS enviou "authorizing:github" — respondemos com o token usando e.origin
-    window.opener.postMessage(message, e.origin);
-  }
-  window.addEventListener("message", receiveMessage, false);
-  // Inicia o handshake: avisa o CMS que estamos prontos
-  window.opener.postMessage("authorizing:github", "*");
+  var origins = [
+    "https://jardimsecretopenedo.vercel.app",
+    "*"
+  ];
+  
+  // Tenta enviar o token para o CMS a cada 200ms por 10 segundos
+  var count = 0;
+  var interval = setInterval(function() {
+    count++;
+    try {
+      if (window.opener) {
+        origins.forEach(function(origin) {
+          window.opener.postMessage(message, origin);
+        });
+      }
+    } catch(e) {}
+    if (count >= 50) {
+      clearInterval(interval);
+      window.close();
+    }
+  }, 200);
 })();
 </script>
 </body>
