@@ -8,7 +8,6 @@
 </head>
 <body>
 <script>
-  // Intercepta window.open antes do CMS carregar
   var _open = window.open;
   window.open = function(url, name, features) {
     if (url && url.indexOf('api.netlify.com') !== -1) {
@@ -16,11 +15,6 @@
     }
     return _open.call(window, url, name, features);
   };
-
-  // Loga todas as mensagens recebidas para debug
-  window.addEventListener('message', function(e) {
-    console.log('postMessage recebido:', e.origin, e.data);
-  });
 </script>
 <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
 </body>
