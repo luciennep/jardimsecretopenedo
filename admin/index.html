@@ -8,16 +8,10 @@
 </head>
 <body>
   <script>
-    // Intercepta postMessage do popup OAuth antes do CMS carregar
-    window.addEventListener('message', function(e) {
-      console.log('message received', e.data);
-    });
-
-    // Sobrescreve window.open para interceptar o popup de auth
+    // Intercepta window.open e redireciona Netlify para nosso relay
     var _open = window.open;
     window.open = function(url, name, features) {
       if (url && url.indexOf('api.netlify.com') !== -1) {
-        // Redireciona para nosso relay
         url = 'https://jardimsecretopenedo.vercel.app/api/auth';
       }
       return _open.call(window, url, name, features);
