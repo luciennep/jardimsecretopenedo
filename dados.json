@@ -1,44 +1,60 @@
 {
-  "titulo_principal": "Jardim Secreto",
-  "subtitulo": "Alta gastronomia, Natureza e Romantismo em um Refúgio escondido entre as Montanhas de Penedo.",
-  "hero_card_texto": "Um cenário intimista para jantares especiais, encontros e momentos inesquecíveis.",
-  "hero_botao_whatsapp": "Reservar pelo WhatsApp",
-  "hero_botao_conhecer": "Conhecer a Experiência",
-  "popup_titulo": "Dia dos Namorados\nno Jardim Secreto",
-  "popup_subtitulo": "Poucas mesas para a Noite mais Romântica do ano. Reserve sua Experiência em meio à Natureza de Penedo.",
-  "popup_botao": "Reservar minha mesa",
-  "popup_link": "https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados%20no%20Jardim%20Secreto.",
-  "experiencia_titulo": "Um refúgio gastronômico em meio ao verde.",
-  "experiencia_lead": "Mais do que um restaurante, uma experiência. Um refúgio cercado pela natureza, pensado para encontros, celebrações e memórias inesquecíveis.",
-  "experiencia_item1": "Ambiente romântico e acolhedor para casais, famílias e celebrações especiais.",
-  "experiencia_item2": "Gastronomia autoral com frutos do mar, massas, entradas e pratos pensados para criar memória.",
-  "experiencia_item3": "Localização privilegiada a caminho das Três Cachoeiras, em uma das regiões mais encantadoras de Penedo.",
-  "galeria_lead": "Fotos reais do próprio Jardim Secreto, mostrando o que torna o restaurante uma experiência única em Penedo.",
-  "gastronomia_titulo": "Pratos que combinam técnica, frescor e sensibilidade.",
-  "gastronomia_lead": "Da delicadeza das entradas ao frescor dos frutos do mar e massas artesanais, cada criação foi pensada para harmonizar com a atmosfera do restaurante.",
-  "prato1_nome": "Tartar Especial",
-  "prato1_descricao": "Entrada elegante, fresca e cheia de personalidade para abrir a experiência.",
-  "prato2_nome": "Camarões Grelhados",
-  "prato2_descricao": "Frutos do mar preparados com cuidado, equilíbrio e apresentação refinada.",
-  "prato3_nome": "Massa com Camarão",
-  "prato3_descricao": "Conforto, técnica e sabor em um prato que traduz a identidade da casa.",
-  "chef_nome": "Chef Fabiano de Almeida",
-  "chef_quote": "Uma cozinha autoral feita para transformar ingredientes selecionados em memórias gastronômicas.",
-  "chef_texto": "Com olhar refinado e respeito à culinária clássica e contemporânea, o chef combina técnicas precisas com o frescor dos produtos locais. Cada prato é pensado para harmonizar com a atmosfera mágica do restaurante, transformando o jantar em uma lembrança inesquecível.",
-  "avaliacao1_texto": "Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador.",
-  "avaliacao1_autor": "Ana Paula",
-  "avaliacao2_texto": "Melhor experiência gastronômica de Penedo. Serviço impecável e pratos muito bem executados.",
-  "avaliacao2_autor": "Ricardo M.",
-  "avaliacao3_texto": "Cada prato é uma obra de arte. O jardim ao redor cria uma atmosfera única.",
-  "avaliacao3_autor": "Fernanda L.",
-  "localizacao_lead": "Um endereço especial em Penedo, perfeito para transformar um almoço ou jantar em passeio completo.",
-  "endereco": "Av. das Três Cachoeiras, 3899 — Penedo, Itatiaia/RJ",
-  "endereco_link": "https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/",
-  "whatsapp_numero": "(24) 99267-1045 — Falar no WhatsApp",
-  "link_whatsapp": "https://wa.me/5524992671045",
-  "instagram_link": "https://www.instagram.com/restaurante_jardimsecreto/?hl=pt",
-  "facebook_link": "https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR",
-  "cta_titulo": "Pronto para viver uma noite inesquecível?",
-  "cta_lead": "Fale com o Jardim Secreto pelo WhatsApp e Garanta sua Experiência Gastronômica em Penedo.",
-  "cta_botao": "Reservar agora pelo WhatsApp"
+  "geral": {
+    "titulo_principal": "Jardim Secreto",
+    "subtitulo": "Alta gastronomia, Natureza e Romantismo em um Refúgio escondido entre as Montanhas de Penedo.",
+    "hero_card_texto": "Um cenário intimista para jantares especiais, encontros e momentos inesquecíveis.",
+    "hero_botao_whatsapp": "Reservar pelo WhatsApp",
+    "hero_botao_conhecer": "Conhecer a Experiência"
+  },
+  "popup": {
+    "popup_titulo": "Dia dos Namorados\nno Jardim Secreto",
+    "popup_subtitulo": "Poucas mesas para a Noite mais Romântica do ano. Reserve sua Experiência em meio à Natureza de Penedo.",
+    "popup_botao": "Reservar minha mesa",
+    "popup_link": "https://wa.me/5524992671045?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20para%20o%20Dia%20dos%20Namorados%20no%20Jardim%20Secreto."
+  },
+  "experiencia": {
+    "experiencia_titulo": "Um refúgio gastronômico em meio ao verde.",
+    "experiencia_lead": "Mais do que um restaurante, uma experiência. Um refúgio cercado pela natureza, pensado para encontros, celebrações e memórias inesquecíveis.",
+    "experiencia_item1": "Ambiente romântico e acolhedor para casais, famílias e celebrações especiais.",
+    "experiencia_item2": "Gastronomia autoral com frutos do mar, massas, entradas e pratos pensados para criar memória.",
+    "experiencia_item3": "Localização privilegiada a caminho das Três Cachoeiras, em uma das regiões mais encantadoras de Penedo.",
+    "galeria_lead": "Fotos reais do próprio Jardim Secreto, mostrando o que torna o restaurante uma experiência única em Penedo."
+  },
+  "gastronomia": {
+    "gastronomia_titulo": "Pratos que combinam técnica, frescor e sensibilidade.",
+    "gastronomia_lead": "Da delicadeza das entradas ao frescor dos frutos do mar e massas artesanais, cada criação foi pensada para harmonizar com a atmosfera do restaurante.",
+    "prato1_nome": "Tartar Especial",
+    "prato1_descricao": "Entrada elegante, fresca e cheia de personalidade para abrir a experiência.",
+    "prato2_nome": "Camarões Grelhados",
+    "prato2_descricao": "Frutos do mar preparados com cuidado, equilíbrio e apresentação refinada.",
+    "prato3_nome": "Massa com Camarão",
+    "prato3_descricao": "Conforto, técnica e sabor em um prato que traduz a identidade da casa."
+  },
+  "chef": {
+    "chef_nome": "Chef Fabiano de Almeida",
+    "chef_quote": "Uma cozinha autoral feita para transformar ingredientes selecionados em memórias gastronômicas.",
+    "chef_texto": "Com olhar refinado e respeito à culinária clássica e contemporânea, o chef combina técnicas precisas com o frescor dos produtos locais. Cada prato é pensado para harmonizar com a atmosfera mágica do restaurante, transformando o jantar em uma lembrança inesquecível."
+  },
+  "avaliacoes": {
+    "avaliacao1_texto": "Um lugar mágico. A comida é extraordinária e o ambiente é simplesmente encantador.",
+    "avaliacao1_autor": "Ana Paula",
+    "avaliacao2_texto": "Melhor experiência gastronômica de Penedo. Serviço impecável e pratos muito bem executados.",
+    "avaliacao2_autor": "Ricardo M.",
+    "avaliacao3_texto": "Cada prato é uma obra de arte. O jardim ao redor cria uma atmosfera única.",
+    "avaliacao3_autor": "Fernanda L."
+  },
+  "localizacao": {
+    "localizacao_lead": "Um endereço especial em Penedo, perfeito para transformar um almoço ou jantar em passeio completo.",
+    "endereco": "Av. das Três Cachoeiras, 3899 — Penedo, Itatiaia/RJ",
+    "endereco_link": "https://www.google.com/maps/dir//Restaurante+Jardim+Secreto+-+Penedo+RJ,+Av.+das+Tr%C3%AAs+Cachoeiras,+3899+-+Penedo,+Itatiaia+-+RJ,+27580-000/@-22.4694165,-44.4842314,15z/",
+    "whatsapp_numero": "(24) 99267-1045 — Falar no WhatsApp",
+    "link_whatsapp": "https://wa.me/5524992671045",
+    "instagram_link": "https://www.instagram.com/restaurante_jardimsecreto/?hl=pt",
+    "facebook_link": "https://www.facebook.com/JardimSecretoRestaurante/?locale=pt_BR"
+  },
+  "cta": {
+    "cta_titulo": "Pronto para viver uma noite inesquecível?",
+    "cta_lead": "Fale com o Jardim Secreto pelo WhatsApp e Garanta sua Experiência Gastronômica em Penedo.",
+    "cta_botao": "Reservar agora pelo WhatsApp"
+  }
 }
