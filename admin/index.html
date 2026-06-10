@@ -7,16 +7,21 @@
   <title>Painel Admin — Jardim Secreto</title>
 </head>
 <body>
-  <script>
-    // Intercepta window.open e redireciona Netlify para nosso relay
-    var _open = window.open;
-    window.open = function(url, name, features) {
-      if (url && url.indexOf('api.netlify.com') !== -1) {
-        url = 'https://jardimsecretopenedo.vercel.app/api/auth';
-      }
-      return _open.call(window, url, name, features);
-    };
-  </script>
-  <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
+<script>
+  // Intercepta window.open antes do CMS carregar
+  var _open = window.open;
+  window.open = function(url, name, features) {
+    if (url && url.indexOf('api.netlify.com') !== -1) {
+      url = 'https://jardimsecretopenedo.vercel.app/api/auth';
+    }
+    return _open.call(window, url, name, features);
+  };
+
+  // Loga todas as mensagens recebidas para debug
+  window.addEventListener('message', function(e) {
+    console.log('postMessage recebido:', e.origin, e.data);
+  });
+</script>
+<script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
 </body>
 </html>
