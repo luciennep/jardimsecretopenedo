@@ -23,44 +23,38 @@ export default async function handler(req, res) {
         <pre>${JSON.stringify(data, null, 2)}</pre>
       `);
     }
+    const token = data.access_token;
     const message = `authorization:github:success:${JSON.stringify({
-      token: data.access_token,
+      token: token,
       provider: "github",
     })}`;
     res.setHeader("Content-Type", "text/html");
-    return res.send(`
-      <!doctype html>
-      <html>
-        <head>
-          <meta charset="utf-8" />
-          <title>Login realizado</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; padding: 30px;">
-          <h2>Login recebido. Aguarde...</h2>
-          <p>Se esta janela não fechar sozinha, pode fechar manualmente em alguns segundos.</p>
-          <script>
-            const message = ${JSON.stringify(message)};
-            function sendToken() {
-              if (window.opener) {
-                window.opener.postMessage(message, "*");
-              }
-            }
-            sendToken();
-            setTimeout(sendToken, 500);
-            setTimeout(sendToken, 1000);
-            setTimeout(sendToken, 2000);
-            setTimeout(sendToken, 3000);
-            setTimeout(function() {
-              window.close();
-            }, 6000);
-          </script>
-        </body>
-      </html>
-    `);
+    return res.send(`<!doctype html>
+<html>
+<head><meta charset="utf-8" /><title>Login realizado</title></head>
+<body>
+<p>Autenticando...</p>
+<script>
+var message = ${JSON.stringify(message)};
+var targetOrigin = "https://jardimsecretopenedo.vercel.app";
+var attempts = 0;
+var timer = setInterval(function() {
+  attempts++;
+  if (window.opener) {
+    try {
+      window.opener.postMessage(message, targetOrigin);
+      window.opener.postMessage(message, "*");
+    } catch(e) {}
+  }
+  if (attempts >= 20) {
+    clearInterval(timer);
+    window.close();
+  }
+}, 300);
+</script>
+</body>
+</html>`);
   } catch (error) {
-    return res.status(500).send(`
-      <h1>Erro interno no callback</h1>
-      <pre>${error.message}</pre>
-    `);
+    return res.status(500).send(`<h1>Erro</h1><pre>${error.message}</pre>`);
   }
 }
