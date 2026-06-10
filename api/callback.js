@@ -29,19 +29,24 @@ export default async function handler(req, res) {
     }
 
     res.setHeader("Content-Type", "text/html");
+
     return res.send(`
       <!doctype html>
       <html>
         <body>
+          <h2>Login recebido. Aguarde...</h2>
           <script>
             window.opener.postMessage(
               'authorization:github:success:${JSON.stringify({
                 token: data.access_token,
                 provider: "github"
               }).replace(/'/g, "\\'")}',
-              window.location.origin
+              '*'
             );
-            window.close();
+
+            setTimeout(function() {
+              window.close();
+            }, 5000);
           </script>
         </body>
       </html>
