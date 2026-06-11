@@ -202,8 +202,9 @@ footer{padding:38px 0;border-top:1px solid rgba(205,187,120,.12);background:#080
 function fecharPopup(){document.getElementById('popup').classList.remove('ativo')}
 document.getElementById('popup').addEventListener('click',function(e){if(e.target===this)fecharPopup()})
 
-fetch('dados.json?v=' + Date.now())
+fetch('https://rhcwbfzs.apicdn.sanity.io/v2025-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22siteContent%22%5D%5B0%5D')
   .then(r => r.json())
+  .then(res => res.result)
   .then(d => {
     // Popup
     document.getElementById('popup-titulo').innerHTML = d.popup_titulo.replace('\n','<br>');
